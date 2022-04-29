@@ -58,16 +58,25 @@
 				</div>
 			</div>
 			<div class="welcomeScreen">
-				<div class="form-box">
+				<div id="form" class="form-box">
 					<div class="button-box">
 						<div id="btn"></div>
-						<button type="button" class="toggle-btn">Login</button>
-						<button type="button" class="toggle-btn">Register</button>
+						<button type="button" class="toggle-btn" onclick="login()">Login</button>
+						<button type="button" class="toggle-btn" onclick="register()">Register</button>
 					</div>
-					<form class="input-group">
+					<form id="login" class="input-group">
 						<input type="text" class="input-field" placeholder="Username" required>
-						<input type="text" class="input-field" placeholder="Enter Password" required>
+						<input type="password" class="input-field" placeholder="Enter Password" required>
 						<button type="submit" class="submit-btn">Login</button>
+					</form>
+					<form id="register" class="input-group">
+						<input id="regUser" type="text" class="input-field" placeholder="Username" required>
+						<!-- to check if possible to make the password check after click register! -->
+						<input id="regPass" type="password" class="input-field" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[A-Za-z]).{6,}" title="Must contain at least one number and one uppercase or lowercase letter, and at least 6 or more characters" required>
+						<input id="regName" type="text" class="input-field" placeholder="Full Name" pattern="(?=.*[A-Za-z]).{2,}" title="Full name cannot contain numbers" required>
+						<input id="regEmail" type="email" class="input-field" placeholder="Email" required>
+						<input id="regBirth" type="date" class="input-field" placeholder="Birth Date" required>
+						<button type="submit" class="submit-btn" onclick="successfulRegisteraion()">Register</button>
 					</form>
 				</div>
 			</div>
@@ -77,6 +86,64 @@
 
 		</div>
 		
-		
+		<script>
+			let loginForm = document.getElementById("login");
+			let registerForm = document.getElementById("register");
+			let btn = document.getElementById("btn");
+			let form = document.getElementById("form");
+
+			function register(){
+				loginForm.style.left = "-400px";
+				registerForm.style.left = "50px";
+				btn.style.left = "110px";
+				form.style.height = "600px"
+			}
+
+			function login(){
+				loginForm.style.left = "50px";
+				registerForm.style.left = "450px";
+				btn.style.left = "0";
+				form.style.height = "480px"
+			}
+
+			// function User(email, username, fullName, birthdate, password){
+			// 	this.email = email;
+			// 	this.username = username;
+			// 	this.fullName = fullName;;
+			// 	this.birthdate = birthdate;
+			// 	this.password = password;
+			// }
+
+			function successfulRegisteraion(){
+				let inputElements = registerForm.querySelectorAll("input, select, textarea");
+				let flag = true;
+				for(let i = 0; i < inputElements.length; i++){
+					if(!inputElements[i].checkValidity()){
+						flag = false;
+						break;
+					}
+				}
+				if(flag){
+					// let regEmail = document.getElementById("regEmail")
+					// let regUsername = document.getElementById("regUser")
+					// let regName = document.getElementById("regName")
+					// let regBirth = document.getElementById("regBirth")
+					// let regPassword = document.getElementById("regPass")
+					// var user = new User(regEmail.value, regUsername.value, regName.value, regBirth.value, regPassword.value);
+					// localStorage.setItem('username', username)
+					login()
+					// let user = JSON.parse(localStorage.getItem(username))
+					// console.log(user)
+					// TODO try clear the form without trigger validation
+					// var validator = registerForm.validate();
+					// validator.resetForm();
+					// registerForm.submit();
+					// registerForm.reset();
+					// for(let i = 0; i < inputElements.length; i++){
+					// 	inputElements[i].value = ""
+					// }
+				}
+			}
+		</script>
 	</body>
 </html>
