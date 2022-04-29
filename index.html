@@ -3,19 +3,80 @@
 	<head>
 		<script src="./jquery-3.4.1.slim.min.js"></script>
 		<script type="text/javascript" src="./app.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css" />
 	</head>
 
 	<body>
-		<div id="score">
-			<label for="lblScore">SCORE:</label>
-			<input id="lblScore" type="text" />
+		<div id="header">
+			<img src="Images/logo3.png" class="logo">
+			<h2 class="gameName">Pacman Game</h2>
+			<h2 class="ourNames"> Maor Biton Dor and Dana Hohenstein</h2>
+			<!-- <a title="acman logo download - logo pac man PNG image with transparent background@toppng.com" href="https://toppng.com/acman-logo-download-logo-pac-man-PNG-free-PNG-Images_199419" target="_blank">acman logo download - logo pac man PNG image with transparent background<img src="https://toppng.com/uploads/preview/acman-logo-download-logo-pac-man-11563051093mknbbe3ezl.png" alt="acman logo download - logo pac man PNG image with transparent background@toppng.com"></a> -->
 		</div>
-		<div id="time">
-			<label for="lblTime">TIME:</label>
-			<input id="lblTime" type="text" />
+	
+		<div id="menu">
+			<nav class="fixed-nav-bar">
+				<div id="menu1" class="navigation">
+				  <ul>
+					<li class="list active">
+					  <a href="#welcome">
+						<span class="text">Welcome</span>
+					  </a>
+					</li>
+					<li class="list">
+					  <a href="#register">
+						<span class="text">Register</span>
+					  </a>
+					</li>
+					<li class="list">
+					  <a href="#login">
+						<span class="text">Login</span>
+					  </a>
+					</li>
+					<li class="list">
+						<a href="#about">
+						  <span class="text">About</span>
+						</a>
+					  </li>
+				  </ul>
+				</div>
+			  </nav>
 		</div>
-		<div id="game">
-			<canvas id="canvas" height="600" width="600"></canvas>
+
+		<div id="content">
+			<div class="pacmanScreen">
+				<div id="score">
+					<label for="lblScore">SCORE:</label>
+					<input id="lblScore" type="text" />
+				</div>
+				<div id="time">
+					<label for="lblTime">TIME:</label>
+					<input id="lblTime" type="text" />
+				</div>
+				<div id="game">
+					<canvas id="canvas" height="600" width="600"></canvas>
+				</div>
+			</div>
+			<div class="welcomeScreen">
+				<div class="form-box">
+					<div class="button-box">
+						<div id="btn"></div>
+						<button type="button" class="toggle-btn">Login</button>
+						<button type="button" class="toggle-btn">Register</button>
+					</div>
+					<form class="input-group">
+						<input type="text" class="input-field" placeholder="Username" required>
+						<input type="text" class="input-field" placeholder="Enter Password" required>
+						<button type="submit" class="submit-btn">Login</button>
+					</form>
+				</div>
+			</div>
 		</div>
+	
+		<div id="footer">
+
+		</div>
+		
+		
 	</body>
 </html>
