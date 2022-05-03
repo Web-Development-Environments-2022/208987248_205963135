@@ -17,13 +17,13 @@ function login(){
     form.style.height = "480px"
 }
 
-// function User(email, username, fullName, birthdate, password){
-// 	this.email = email;
-// 	this.username = username;
-// 	this.fullName = fullName;;
-// 	this.birthdate = birthdate;
-// 	this.password = password;
-// }
+function User(email, username, fullName, birthdate, password){
+	this.email = email;
+	this.username = username;
+	this.fullName = fullName;;
+	this.birthdate = birthdate;
+	this.password = password;
+}
 
 
 function successfulRegisteraion(){
@@ -35,24 +35,26 @@ function successfulRegisteraion(){
             break;
         }
     }
-    if(flag){
-        // let regEmail = document.getElementById("regEmail")
-        // let regUsername = document.getElementById("regUser")
-        // let regName = document.getElementById("regName")
-        // let regBirth = document.getElementById("regBirth")
-        // let regPassword = document.getElementById("regPass")
-        // var user = new User(regEmail.value, regUsername.value, regName.value, regBirth.value, regPassword.value);
-        // localStorage.setItem('username', username)
+    if(flag)
+    {
+        let regEmail = document.getElementById("regEmail")
+        let regUsername = document.getElementById("regUser")
+        let regName = document.getElementById("regName")
+        let regBirth = document.getElementById("regBirth")
+        let regPassword = document.getElementById("regPass")
+        var user = new User(regEmail.value, regUsername.value, regName.value, regBirth.value, regPassword.value);
+        localStorage.setItem(regUsername.value,JSON.stringify(user));
         login()
-        // let user = JSON.parse(localStorage.getItem(username))
-        // console.log(user)
-        // TODO try clear the form without trigger validation
-        // var validator = registerForm.validate();
-        // validator.resetForm();
-        // registerForm.submit();
-        // registerForm.reset();
-        // for(let i = 0; i < inputElements.length; i++){
-        // 	inputElements[i].value = ""
-        // }
     }
+}
+
+function addK()
+{
+    let email = "k@gmail.com"
+    let userName = "k"
+    let name = "k"
+    let birthdate = "2022-05-23"
+    let password = "k"
+    var user_k = new User(email,userName, name, birthdate, password);
+    localStorage.setItem(regUsername.value,JSON.stringify(user_k));
 }
