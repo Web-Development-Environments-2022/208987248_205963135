@@ -6,6 +6,8 @@ var pac_color;
 var start_time;
 var time_elapsed;
 var interval;
+var curScreen = document.getElementsByClassName("welcomeScreen");
+curScreen.style.visibility = 'visible';
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -172,3 +174,10 @@ function UpdatePosition() {
 	}
 }
 
+function displayScreen(display_class) 
+{
+	let display_screen = document.getElementsByClassName(display_class);
+	curScreen.style.visibility = 'hidden';
+	curScreen = display_screen;
+	curScreen.style.visibility = 'visible';
+}
