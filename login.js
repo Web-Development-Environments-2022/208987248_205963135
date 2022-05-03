@@ -56,5 +56,5 @@ function addK()
     let birthdate = "2022-05-23"
     let password = "k"
     var user_k = new User(email,userName, name, birthdate, password);
-    localStorage.setItem(regUsername.value,JSON.stringify(user_k));
+    localStorage.setItem(userName, JSON.stringify(user_k));
 }

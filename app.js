@@ -9,8 +9,8 @@ var interval;
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
-	addK();
 	Start();
+	addK();
 });
 
 function Start() {
