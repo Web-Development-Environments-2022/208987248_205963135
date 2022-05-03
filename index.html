@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src="./jquery-3.4.1.slim.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css" />
 	</head>
 
@@ -70,15 +69,10 @@
 					</form>
 					<form id="register" class="input-group">
 						<input id="regUser" type="text" class="input-field" placeholder="Username">
-						<h5 id="usercheck" style="color: red; display: none;">**Username is missing</h5>
-						<input id="regPass" type="password" class="input-field" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[A-Za-z]).{6,}" title="Must contain at least one number and one uppercase or lowercase letter, and at least 6 or more characters">
-						<h5 id="passcheck" style="color: red; display: none;">**Please Fill the password</h5>
-						<input id="regName" type="text" class="input-field" placeholder="Full Name" pattern="(?=.*[A-Za-z]).{2,}" title="Full name cannot contain numbers" >
-						<h5 id="namecheck" style="color: red; display: none;">**fullName is missing</h5>
+						<input id="regPass" type="password" class="input-field" placeholder="Enter Password">
+						<input id="regName" type="text" class="input-field" placeholder="Full Name">
 						<input id="regEmail" type="text" class="input-field" placeholder="Email">
-						<h5 id="emailcheck" style="color: red; display: none;">**email is missing</h5>
 						<input id="regBirth" type="date" class="input-field" placeholder="Birth Date">
-						<h5 id="birthdatecheck" style="color: red; display: none;">**birthDate is missing</h5>
 						<button id="submitBtn" type="submit" class="submit-btn" onclick="successfulRegisteraion()">Register</button>
 					</form>
 				</div>
@@ -88,8 +82,9 @@
 		<div id="footer">
 
 		</div>
-		<script type="text/javascript" src="./app.js"></script>
+		<script src="./jquery-3.4.1.slim.min.js"></script>
 		<script type="text/javascript" src="./login.js"></script>
-
+		<script type="text/javascript" src="./app.js"></script>
+		<script type="text/javascript" src="./register.js"></script>
 	</body>
 </html>
