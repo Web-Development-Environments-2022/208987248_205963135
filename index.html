@@ -92,6 +92,7 @@
 					<button type="submit" class="submit-btn">Login</button>
 				</form>
 			</div>
+
 			<div id="registerScreen" class="screen">
 				<form id="register" class="input-group">
 					<input id="regUser" name="regUser" type="text" class="input-field" placeholder="Username">
@@ -99,6 +100,26 @@
 					<input id="regName" name="regName" type="text" class="input-field" placeholder="Full Name">
 					<input id="regEmail" name="regEmail" type="text" class="input-field" placeholder="Email">
 					<input id="regBirth" name="regBirth" type="date" class="input-field" placeholder="Birth Date">
+					<button id="submitBtn" type="submit" class="submit-btn">Register</button>
+				</form>
+			</div>
+
+			<div id="settingScreen" class="screen">
+				<form id="setting" class="input-group">
+					<ul id="keyboards-select">
+						<li>
+							<input id="Up" class="keyboard-option" type="button" value="⇧" placeholder="Enter Up key" name="moveUpBtn"  onclick="changeKey(`UP`)" required>
+						</li>
+						<li>
+							<input id="Left" class="keyboard-option" type="button" value="⇦" placeholder="Enter Left key" name="moveLeftBtn" onclick="changeKey(`LEFT`)" required>
+						</li>								
+						<li>
+							<input id="Right" class="keyboard-option" type="button" value="➪" placeholder="Enter Right key" name="moveRightBtn" onclick="changeKey(`RIGHT`)" required>
+						</li>
+						<li>
+							<input id="Down" class="keyboard-option" type="button" value="⇩" placeholder="Enter Down key" name="moveDownBtn" onclick="changeKey(`DOWN`)" required>
+						</li>
+					</ul>
 					<button id="submitBtn" type="submit" class="submit-btn">Register</button>
 				</form>
 			</div>
