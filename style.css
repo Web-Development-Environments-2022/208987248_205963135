@@ -27,11 +27,9 @@
 .navigation ul li
 {
     list-style: none;
-    border: 2px solid black;
     font-size: 15px;
     font-weight: bold;
     margin: 30px;
-    border-radius: 15px;
     font-family: Arial, Helvetica, sans-serif;
 }
 .navigation ul li a
@@ -41,14 +39,12 @@
     display: block;
     text-align: center;
 }
-
+/* 
 #pacmanScreen{
-    /* visibility: hidden; */
-}
+} */
 
 #homeScreen
 {
-    /* background-image: url("Images/1.jpg"); */
     height: 100%;
     width: 100%;
     background-position: center;
@@ -57,7 +53,6 @@
     z-index: -1;
     margin: 100px;
     margin-left: 900px;
-    /* visibility: visible; */
 }
 
 #homeScreen ul
@@ -71,11 +66,9 @@
 #homeScreen ul li 
 {
     list-style: none;
-    border: 2px solid black;
     font-size: 15px;
     font-weight: bold;
     margin: 30px;
-    border-radius: 15px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -187,3 +180,40 @@
     left: 40%;
     transform: translate(-25%, -40%);
 }
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
