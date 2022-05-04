@@ -110,3 +110,8 @@
 #register{
     left: 450px;
 }
+
+.error{
+    color: red;
+    font-style: italic;
+}

@@ -7,10 +7,16 @@ var start_time;
 var time_elapsed;
 var interval;
 var curScreen = document.getElementsByClassName("welcomeScreen");
-curScreen.style.visibility = 'visible';
+// curScreen.style.visibility = 'visible';
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
+	$(window).keydown(function(event){
+		if(event.keyCode == 13) {
+		  event.preventDefault();
+		  return false;
+		}
+	  });
 	Start();
 	addK();
 });
