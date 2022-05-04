@@ -42,13 +42,11 @@
     text-align: center;
 }
 
-
-
-.pacmanScreen{
-    display: none;
+#pacmanScreen{
+    /* visibility: hidden; */
 }
 
-.homeScreen
+#homeScreen
 {
     /* background-image: url("Images/1.jpg"); */
     height: 100%;
@@ -59,9 +57,10 @@
     z-index: -1;
     margin: 100px;
     margin-left: 900px;
+    /* visibility: visible; */
 }
 
-.homeScreen ul
+#homeScreen ul
 {
     padding: 0px;
     margin: 0px auto;
@@ -69,7 +68,7 @@
     margin-left: 100px;
     margin-top: 100px;
 }
-.homeScreen ul li 
+#homeScreen ul li 
 {
     list-style: none;
     border: 2px solid black;
@@ -80,22 +79,12 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.homeScreen ul li a{
+#homeScreen ul li a{
     text-decoration: none;
     padding: 15px 35px;
     display: block;
     text-align: center;
 }
-
-/* .welcomeScreen{
-    height: 100%;
-    width: 100%;
-    background-image: url("Images/banner.jpg");
-    background-position: center;
-    background-size: cover;
-    position: absolute;
-    z-index: -1;
-} */
 
 .form-box{
     width: 380px;
@@ -176,4 +165,25 @@
 
 #register{
     left: 450px;
+}
+
+.error{
+    color: red;
+    font-style: italic;
+}
+
+#loginScreen{
+    /* visibility: hidden; */
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    transform: translate(-25%, -40%);
+}
+
+#registerScreen{
+    /* visibility: hidden; */
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    transform: translate(-25%, -40%);
 }

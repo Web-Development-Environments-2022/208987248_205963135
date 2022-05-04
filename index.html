@@ -21,17 +21,17 @@
 				  <ul>
 					<li class="list active">
 					  <a href="#welcome">
-						<span class="text">Welcome</span>
+						<span class="text" onclick="welcome()">Welcome</span>
 					  </a>
 					</li>
 					<li class="list">
 					  <a href="#register">
-						<span class="text">Register</span>
+						<span class="text" onclick="register()">Register</span>
 					  </a>
 					</li>
 					<li class="list">
 					  <a href="#login">
-						<span class="text">Login</span>
+						<span class="text" onclick="login()">Login</span>
 					  </a>
 					</li>
 					<li class="list">
@@ -45,25 +45,25 @@
 		</div>
 
 		<div id="content">
-			<div class="homeScreen">
+			<div id="homeScreen" class="screen">
 				<div>
 					<div class="tenor-gif-embed" data-postid="12836291" data-share-method="host" data-aspect-ratio="1.77778" data-width="25%"><a href="https://tenor.com/view/old-school-video-games-pac-man-gif-12836291">Old School Video Games GIF</a>from <a href="https://tenor.com/search/old+school-gifs">Old School GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 					<ul>
 						<li class="list active">
 						  <a href="#register">
-							<span class="text">Register</span>
+							<span class="text" onclick="register()">Register</span>
 						  </a>
 						</li>
 						<li class="list">
 						  <a href="#login">
-							<span class="text">Login</span>
+							<span class="text" onclick="login()">Login</span>
 						  </a>
 						</li>
 					</ul>
 				</div>
 			</div>
 
-			<!-- <div class="pacmanScreen">
+			<div id="pacmanScreen" class="screen">
 				<div id="score">
 					<label for="lblScore">SCORE:</label>
 					<input id="lblScore" type="text" />
@@ -76,29 +76,25 @@
 					<canvas id="canvas" height="600" width="600"></canvas>
 				</div>
 			</div>
-			<div class="welcomeScreen">
-				<div id="form" class="form-box">
-					<div class="button-box">
-						<div id="btn"></div>
-						<button type="button" class="toggle-btn" onclick="login()">Login</button>
-						<button type="button" class="toggle-btn" onclick="register()">Register</button>
-					</div>
-					<form id="login" class="input-group">
-						<input type="text" class="input-field" placeholder="Username" required>
-						<input type="password" class="input-field" placeholder="Enter Password" required>
-						<button type="submit" class="submit-btn">Login</button>
-					</form>
-					<form id="register" class="input-group">
-						<input id="regUser" type="text" class="input-field" placeholder="Username">
-						<input id="regPass" type="password" class="input-field" placeholder="Enter Password">
-						<input id="regName" type="text" class="input-field" placeholder="Full Name">
-						<input id="regEmail" type="text" class="input-field" placeholder="Email">
-						<input id="regBirth" type="date" class="input-field" placeholder="Birth Date">
-						<button id="submitBtn" type="submit" class="submit-btn">Register</button>
-					</form>
-				</div>
+
+			<div id="loginScreen" class="screen">
+				<form id="login" class="input-group">
+					<input id="loginUser" name="regUser" type="text" class="input-field" placeholder="Username" required>
+					<input id="loginPass" name="regPass" type="password" class="input-field" placeholder="Enter Password" required>
+					<button type="submit" class="submit-btn">Login</button>
+				</form>
 			</div>
-		</div> -->
+			<div id="registerScreen" class="screen">
+				<form id="register" class="input-group">
+					<input id="regUser" name="regUser" type="text" class="input-field" placeholder="Username">
+					<input id="regPass" name="regPass" type="password" class="input-field" placeholder="Enter Password">
+					<input id="regName" name="regName" type="text" class="input-field" placeholder="Full Name">
+					<input id="regEmail" name="regEmail" type="text" class="input-field" placeholder="Email">
+					<input id="regBirth" name="regBirth" type="date" class="input-field" placeholder="Birth Date">
+					<button id="submitBtn" type="submit" class="submit-btn">Register</button>
+				</form>
+			</div>
+		</div>
 	
 		<div id="footer">
 
@@ -109,6 +105,7 @@
 		<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 		<script type="text/javascript" src="./login.js"></script>
 		<script type="text/javascript" src="./register.js"></script>
+		<script type="text/javascript" src="./welcome.js"></script>
 		<script type="text/javascript" src="./app.js"></script>
 		
 	</body>
