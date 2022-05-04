@@ -3,6 +3,23 @@ function register(){
     switchScreens("registerScreen")
 }
 
+function successfulRegisteraion(){
+    let regEmail = document.getElementById("regEmail")
+    let regUsername = document.getElementById("regUser")
+    let regName = document.getElementById("regName")
+    let regBirth = document.getElementById("regBirth")
+    let regPassword = document.getElementById("regPass")
+    if(localStorage.getItem(regUsername.value) === null) {
+        let user = new User(regEmail.value, regUsername.value, regName.value, regBirth.value, regPassword.value);
+        localStorage.setItem(regUsername.value,JSON.stringify(user));
+        login();
+    }
+    else{
+        alert("This user is registered, please try to login or choose different username")
+    }
+    
+}
+
 $(function() {
     $("#register").validate({
         // Specify validation rules

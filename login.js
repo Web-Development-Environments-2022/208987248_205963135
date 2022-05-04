@@ -16,16 +16,6 @@ function User(email, username, fullName, birthdate, password){
 	this.password = password;
 }
 
-function successfulRegisteraion(){
-    let regEmail = document.getElementById("regEmail")
-    let regUsername = document.getElementById("regUser")
-    let regName = document.getElementById("regName")
-    let regBirth = document.getElementById("regBirth")
-    let regPassword = document.getElementById("regPass")
-    let user = new User(regEmail.value, regUsername.value, regName.value, regBirth.value, regPassword.value);
-    localStorage.setItem(regUsername.value,JSON.stringify(user));
-    login();
-}
 
 function addK()
 {
@@ -60,7 +50,6 @@ $(function() {
         // Make sure the form is submitted to the destination defined
         // in the "action" attribute of the form when valid
         submitHandler: function(form) {
-            console.log("submitted")
             successfulLogin();
         }
     });
@@ -69,12 +58,13 @@ $(function() {
 function successfulLogin(){
     let loginUsername = document.getElementById("loginUser");
     let loginPassword = document.getElementById("loginPass");
-    let user = localStorage.getItem(loginUsername.value);
-    if(user.username == loginUsername.value && user.password == loginPassword.value){
-        alert("Success");
+    let user = JSON.parse(localStorage.getItem(loginUsername.value));
+    if(user.username === loginUsername.value && user.password === loginPassword.value){
+        switchScreens("settingScreen")
         return true;
     }
-    else{
+    else{ 
+        alert("One of the details proved was incorrect, please try again");
         return false;
     }
 }
