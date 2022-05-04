@@ -3,20 +3,9 @@ let registerForm = document.getElementById("register");
 let btn = document.getElementById("btn");
 let form = document.getElementById("form");
 
-
-
-function register(){
-    loginForm.style.left = "-400px";
-    registerForm.style.left = "50px";
-    btn.style.left = "110px";
-    form.style.height = "600px"
-}
-
 function login(){
-    loginForm.style.left = "50px";
-    registerForm.style.left = "450px";
-    btn.style.left = "0";
-    form.style.height = "480px"
+    // displayScreen("loginScreen")
+    switchScreens("loginScreen")
 }
 
 function User(email, username, fullName, birthdate, password){
@@ -26,7 +15,6 @@ function User(email, username, fullName, birthdate, password){
 	this.birthdate = birthdate;
 	this.password = password;
 }
-
 
 function successfulRegisteraion(){
     let regEmail = document.getElementById("regEmail")
@@ -77,7 +65,6 @@ $(function() {
         }
     });
 });
-
 
 function successfulLogin(){
     let loginUsername = document.getElementById("loginUser");

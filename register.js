@@ -1,3 +1,8 @@
+function register(){
+    // displayScreen("registerScreen")
+    switchScreens("registerScreen")
+}
+
 $(function() {
     $("#register").validate({
         // Specify validation rules
