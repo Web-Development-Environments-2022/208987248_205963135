@@ -7,10 +7,10 @@ var pac_color;
 var start_time;
 var time_elapsed;
 var interval;
-var lifeCount = 5;
 var curColor5;
 var curColor15;
 var curColor25;
+var pacman;
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -28,6 +28,7 @@ $(document).ready(function() {
 function Start() {
 	boardGame = new Board(20, 20)
 	board = boardGame.generateaBoard()
+	pacman = new Pacman();
 	curColor5 = newColor5;
 	curColor15 = newColor15;
 	curColor25 = newColor25;
@@ -46,7 +47,7 @@ function Start() {
 		},
 		false
 	);
-	interval = setInterval(UpdatePosition, 90);
+	interval = setInterval(UpdatePosition, 100);
 }
 
 function GetKeyPressed() {
@@ -73,7 +74,10 @@ function Draw() { //TODO change the drawings
 			var center = new Object();
 			center.x = i * 60 + 30;
 			center.y = j * 60 + 30;
-			if (board[i][j] == "Pacman") { //TODO change to 4 images depend on the direction
+			if (board[i][j] == "Pacman") {
+				
+				context.drawImage(pacman.imgRight, center.x-10, center.y-10, board.cellWidth*0.7, 0.7*board.cellHeight);
+				// pacman.drawPacman(center);
 				// context.beginPath();
 				// context.arc(center.x, center.y, 30, 0.15 * Math.PI, 1.85 * Math.PI); // half circle
 				// context.lineTo(center.x, center.y);
@@ -83,9 +87,9 @@ function Draw() { //TODO change the drawings
 				// context.arc(center.x + 5, center.y - 15, 5, 0, 2 * Math.PI); // circle
 				// context.fillStyle = "black"; //color
 				// context.fill();
-				const img = new Image();
-				img.src = 'Images/pacman_right.png';
-				context.drawImage(img, center.x, center.y)
+				// const img = new Image();
+				// img.src = 'Images/pacman_right.png';
+				// context.drawImage(img, center.x, center.y)
 			} else if (board[i][j] == "Food5") { //TODO change food size and colors to 5 15 25
 				context.beginPath();
 				context.arc(center.x, center.y, 10, 0, 2 * Math.PI); // circle
@@ -117,22 +121,26 @@ function Draw() { //TODO change the drawings
 function UpdatePosition() {
 	board[shape.i][shape.j] = "Empty";
 	var x = GetKeyPressed();
-	if (x == "UP") { // todo number to letters
+	if (x == "UP") {
+		pacman.direction = "UP";
 		if (shape.j > 0 && board[shape.i][shape.j - 1] != "Wall") {
 			shape.j--;
 		}
 	}
 	if (x == "DOWN") {
+		pacman.direction = "DOWN";
 		if (shape.j < (boardGame.rowNum - 1) && board[shape.i][shape.j + 1] != "Wall") {
 			shape.j++;
 		}
 	}
 	if (x == "LEFT") {
+		pacman.direction = "LEFT";
 		if (shape.i > 0 && board[shape.i - 1][shape.j] != "Wall") {
 			shape.i--;
 		}
 	}
 	if (x == "RIGHT") {
+		pacman.direction = "RIGHT";
 		if (shape.i < (boardGame.colNum - 1) && board[shape.i + 1][shape.j] != "Wall") {
 			shape.i++;
 		}
@@ -161,7 +169,7 @@ function UpdatePosition() {
 		window.clearInterval(interval);
 		window.alert("You are better than " + score + " points!");
 	}
-	else if(lifeCount == 0){
+	else if(pacman.livesLeft == 0){
 		window.clearInterval(interval);
 		window.alert("Loser!");
 	}

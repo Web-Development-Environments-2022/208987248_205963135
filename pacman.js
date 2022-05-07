@@ -2,30 +2,35 @@ class Pacman{
     constructor(){
         this.livesLeft = 5;
         this.interval = setInterval(UpdatePosition, 100);
-        this.img_up = new Image(10,10);
-        this.img_up.src = "./Images/pacman_up.png";
-        this.img_down = new Image(10,10);
-        this.img_down.src = "./Images/pacman_down.png";
-        this.img_left = new Image(10,10);
-        this.img_left.src = "./Images/pacman_left.png";
-        this.img_right = new Image(10,10);
-        this.img_right.src = "./Images/pacman_right.png";
-        this.food_eaten = 0;
+        this.imgUp = new Image();
+        this.imgUp.src = "Images/pacman_up.png";
+        this.imgDown = new Image();
+        this.imgDown.src = "Images/pacman_down.png";
+        this.imgLeft = new Image();
+        this.imgLeft.src = "Images/pacman_left.png";
+        this.imgRight = new Image();
+        this.imgRight.src = "Images/pacman_right.png";
+        this.direction = "RIGHT";
     }
 
-    DrawPacman(center){
+    drawPacman(center){
         // draw pacman by direction
-        if (pacman.direction == "U"){
-            context.drawImage(pacman.img_up, center.x-10, center.y-10, board.cell_width*0.7, 0.7*board.cell_height);
+        console.log("drawPacman")
+        if (this.direction == "UP"){
+            console.log("UP")
+            context.drawImage(this.imgUp, center.x-10, center.y-10, board.cellWidth*0.7, 0.7*board.cellHeight);
         }
-        else if (pacman.direction == "D"){
-            context.drawImage(pacman.img_down, center.x-10, center.y-10, board.cell_width*0.7,0.7* board.cell_height);
+        else if (this.direction == "DOWN"){
+            console.log("DOWN")
+            context.drawImage(this.imgDown, center.x-10, center.y-10, board.cellWidth*0.7, 0.7*board.cellHeight);
         }
-        else if (pacman.direction == "R"){
-            context.drawImage(pacman.img_right, center.x-10, center.y-10, board.cell_width*0.7,0.7* board.cell_height);
+        else if (this.direction == "RIGHT"){
+            console.log("RIGHT")
+            context.drawImage(this.imgRight, center.x-10, center.y-10, board.cellWidth*0.7, 0.7*board.cellHeight);
         }
         else{
-            context.drawImage(pacman.img_left, center.x-10, center.y-10, board.cell_width*0.7,0.7* board.cell_height);
+            console.log("LEFT")
+            context.drawImage(this.imgLeft, center.x-10, center.y-10, board.cellWidth*0.7, 0.7*board.cellHeight);
         }
     }
 }
