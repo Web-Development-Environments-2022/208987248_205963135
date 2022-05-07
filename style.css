@@ -2,20 +2,137 @@
 {
 
 } */
+body {
+    margin: 0;
+    /* overflow: hidden; */
+}
 
-#header .logo{
-	height: 100px;
-	left: 20px;
-	top: 25px;
+.logo{
+	height: 60px;
+}
+
+.navbar-container {
+    background-color: #4F759B;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+}
+
+.left-buttons-container {
+    /* position: absolute;
+    left: 0; */
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 17px;
+    margin-left: 20px;
+}
+
+.right-buttons-container {
+    /* position: absolute;
+    right: 0; */
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 17px;
+    margin-right: 20px;
+}
+
+.pacman-container {
+    /* margin: auto; */
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ourNames {
+    font-size: 140%;
+    color: white;
+}
+
+.navbar-button {
+    background-color: #aaa !important;
+    border-color: initial !important;
+    outline: 0 !important;
+}
+
+.navbar-button:hover {
+    background-color: rgb(153, 153, 153) !important;
+}
+
+.middle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 72vh;
+    gap: 50px;
+}
+
+.main-gif-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 50px;
+}
+
+.main-buttons-contaner {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 25%;
+    left: 40%;
+}
+.register-form {
+    width: 350px;
+    height: 500px;
+    background-color: #4F759B;
+    border-radius: 10px;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 25%;
+    left: 40%;
+}
+
+.login-form {
+    width: 350px;
+    height: 300px;
+    background-color: #4F759B;
+    border-radius: 10px;
 }
 
 
+.input-field {
+    width: 90% !important;
+    color: #fff !important;
+}
 .navigation
 {
 	display: flex;
 	justify-content: center;
 }
-
+/* 
 .navigation ul
 {
     padding: 0px;
@@ -38,46 +155,7 @@
     padding: 15px 35px;
     display: block;
     text-align: center;
-}
-/* 
-#pacmanScreen{
 } */
-
-#homeScreen
-{
-    height: 100%;
-    width: 100%;
-    background-position: center;
-    background-size: cover;
-    position: absolute;
-    z-index: -1;
-    margin: 100px;
-    margin-left: 900px;
-}
-
-#homeScreen ul
-{
-    padding: 0px;
-    margin: 0px auto;
-    display: flex;
-    margin-left: 100px;
-    margin-top: 100px;
-}
-#homeScreen ul li 
-{
-    list-style: none;
-    font-size: 15px;
-    font-weight: bold;
-    margin: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#homeScreen ul li a{
-    text-decoration: none;
-    padding: 15px 35px;
-    display: block;
-    text-align: center;
-}
 
 .form-box{
     width: 380px;
@@ -119,13 +197,6 @@
     transition: 0.5s;
 }
 
-.input-group{
-    top: 180px;
-    position: absolute;
-    width: 280px;
-    transition: 0.5s;
-}
-
 .input-field{
     width: 100%;
     padding: 10px 0;
@@ -156,10 +227,6 @@
     left: 50px;
 }
 
-#register{
-    left: 450px;
-}
-
 .error{
     color: red;
     font-style: italic;
@@ -170,15 +237,7 @@
     position: absolute;
     top: 25%;
     left: 40%;
-    transform: translate(-25%, -40%);
-}
-
-#registerScreen{
-    /* visibility: hidden; */
-    position: absolute;
-    top: 25%;
-    left: 40%;
-    transform: translate(-25%, -40%);
+    /* transform: translate(-25%, -40%); */
 }
 
 .modal {
@@ -216,6 +275,19 @@
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .input-field::placeholder {
+    color: white !important;
+    opacity:1 !important; /* Firefox */
+  }
+  
+  .input-field:-ms-input-placeholder {
+    color: white !important;;
+  }
+  
+  .input-field::-ms-input-placeholder { 
+    color: white !important;;
   }
 
 .screen{
