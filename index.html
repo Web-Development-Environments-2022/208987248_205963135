@@ -71,20 +71,6 @@
 				</div>
 			</div>
 
-			<div id="pacmanScreen" class="screen">
-				<div id="score">
-					<label for="lblScore">SCORE:</label>
-					<input id="lblScore" type="text" />
-				</div>
-				<div id="time">
-					<label for="lblTime">TIME:</label>
-					<input id="lblTime" type="text" />
-				</div>
-				<div id="game">
-					<canvas id="canvas" height="600" width="600"></canvas>
-				</div>
-			</div>
-
 			<div id="loginScreen" class="screen">
 				<form id="login" class="input-group">
 					<input id="loginUser" name="regUser" type="text" class="input-field" placeholder="Username" required>
@@ -108,20 +94,67 @@
 				<form id="setting" class="input-group">
 					<ul id="keyboards-select">
 						<li>
-							<input id="Up" class="keyboard-option" type="button" value="⇧" placeholder="Enter Up key" name="moveUpBtn"  onclick="changeKey(`UP`)" required>
+							<input id="Up" class="keyboardOption" type="button" value="⇧" placeholder="Enter Up key" name="Up"  onclick="changeKey('UP')" required>
 						</li>
 						<li>
-							<input id="Left" class="keyboard-option" type="button" value="⇦" placeholder="Enter Left key" name="moveLeftBtn" onclick="changeKey(`LEFT`)" required>
+							<input id="Left" class="keyboardOption" type="button" value="⇦" placeholder="Enter Left key" name="Left" onclick="changeKey('LEFT')" required>
 						</li>								
 						<li>
-							<input id="Right" class="keyboard-option" type="button" value="➪" placeholder="Enter Right key" name="moveRightBtn" onclick="changeKey(`RIGHT`)" required>
+							<input id="Right" class="keyboardOption" type="button" value="➪" placeholder="Enter Right key" name="Right" onclick="changeKey('RIGHT')" required>
 						</li>
 						<li>
-							<input id="Down" class="keyboard-option" type="button" value="⇩" placeholder="Enter Down key" name="moveDownBtn" onclick="changeKey(`DOWN`)" required>
+							<input id="Down" class="keyboardOption" type="button" value="⇩" placeholder="Enter Down key" name="Down" onclick="changeKey( 'DOWN')" required>
 						</li>
 					</ul>
-					<button id="submitBtn" type="submit" class="submit-btn">Register</button>
+					<!-- Change this! -->
+					<label><b>Number of Food points:</b></label>
+					<br>
+					<label>50</label>
+					<input type="range" id="foodPointsScale" name="foodPointsScale" min="50" value="50" max="90" step="1" onchange="setValFromScale('foodPointsLabel','foodPointsScale'); changeSettings('FOOD');" required>
+					<label>90</label>
+					<br>
+					<label id="foodPointsLabel" > </label>
+					<br>
+					<label><b>Select colors of food points: </b></label>
+					<br>
+					<label> Select color for 5 points ball: </label>
+					<input class="color-set" type="color" id="5PointColor" value="#f6355c" name="pointsColor5" onchange="changeSettings('COLOR5')" required>
+					<br>
+					<label> Select color for 15 points ball: </label>
+					<input class="color-set" type="color" id="15PointColor" value="#e3a221" name="pointsColor15" onchange="changeSettings('COLOR15')" required>
+					<br>
+					<label> Select color for 25 points ball: </label>
+					<input class="color-set" type="color" id="25PointColor" value="#316600" name="pointsColor25" onchange="changeSettings('COLOR25')" required>
+					<br>
+					<br>
+					<label><b> Select the time duration the game: </b></label>
+					<br>
+					<input type="range" id="gameTimeScale" name="gameTimeScale" min="60" value="60" max="360" step="1" onchange="setValFromScale('gameTimeLabel','gameTimeScale'); changeSettings('TIME');" required>
+					<br>
+					<label id="gameTimeLabel" > </label>
+					<br>
+					<label><b> Selct number of ghosts: </b></label>
+					<br>
+					<input type="range" id="monstersScale" name="monstersScale" min="1" value="2" max="4" step="1" onchange="setValFromScale('monstersLabel','monstersScale'); changeSettings('MONSTERS');" required>
+					<br>
+					<label id="monstersLabel" > </label>
+					<button id="submitSettingsBtn" type="submit" class="submit-btn">Start Game</button>
+					<button id="RandomSettingsBtn" type="button" class="submit-btn" onclick="randomSettings()">Random Settings</button>
 				</form>
+			</div>
+
+			<div id="pacmanScreen" class="screen">
+				<div id="score">
+					<label for="lblScore">SCORE:</label>
+					<input id="lblScore" type="text" />
+				</div>
+				<div id="time">
+					<label for="lblTime">TIME:</label>
+					<input id="lblTime" type="text" />
+				</div>
+				<div id="game">
+					<canvas id="canvas" height="1200" width="1200"></canvas>
+				</div>
 			</div>
 		</div>
 	
@@ -136,6 +169,8 @@
 		<script type="text/javascript" src="./register.js"></script>
 		<script type="text/javascript" src="./about.js"></script>
 		<script type="text/javascript" src="./welcome.js"></script>
+		<script type="text/javascript" src="./settings.js"></script>
+		<script type="text/javascript" src="./board.js"></script>
 		<script type="text/javascript" src="./app.js"></script>
 		
 	</body>

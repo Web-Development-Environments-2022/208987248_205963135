@@ -217,3 +217,13 @@
     text-decoration: none;
     cursor: pointer;
   }
+
+.screen{
+    display: inline-block;
+    padding: 1rem 1rem;
+    vertical-align: top;
+}
+
+#setting{
+    position: static;
+}
