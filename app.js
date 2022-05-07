@@ -12,6 +12,7 @@ var curColor15;
 var curColor25;
 var pacman;
 
+
 $(document).ready(function() {
 	context = canvas.getContext("2d");
 	$(window).keydown(function(event){
@@ -26,8 +27,8 @@ $(document).ready(function() {
 });
 
 function Start() {
-	boardGame = new Board(15, 15);
-	board = boardGame.generateaBoard();
+	boardGame = new Board(12, 12)
+	board = boardGame.generateaBoard()
 	curColor5 = newColor5;
 	curColor15 = newColor15;
 	curColor25 = newColor25;
@@ -67,6 +68,7 @@ function GetKeyPressed() {
 
 function Draw() { //TODO change the drawings 
 	canvas.width = canvas.width; //clean board
+	canvas.style.border = '1px solid #000000'
 	lblScore.value = score;
 	lblTime.value = time_elapsed;
 	for (var i = 0; i < boardGame.colNum; i++) {
