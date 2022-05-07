@@ -38,15 +38,20 @@
 			<div class="middle-container">
 				<div id="homeScreen" class="screen main-gif-container">
 					<div class="tenor-gif-embed" data-postid="12836291" data-share-method="host" data-aspect-ratio="1.77778" data-width="25%"><a href="https://tenor.com/view/old-school-video-games-pac-man-gif-12836291">Old School Video Games GIF</a>from <a href="https://tenor.com/search/old+school-gifs">Old School GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+					<div class="main-buttons-contaner">
+						<a href="#register">
+						<!-- <button class="text" onclick="register()">Register</button> -->
+						<button type="button" class="text btn btn-primary navbar-button" onclick="register()">Register</button>
+
+						</a>
+						<a href="#login">
+						<!-- <button class="text" onclick="login()">Login</button> -->
+						<button type="button" class="text btn btn-primary navbar-button" onclick="login()">Login</button>
+
+						</a>
+					</div>
 				</div>
-				<div class="main-buttons-contaner">
-					<a href="#register">
-					<button class="text" onclick="register()">Register</button>
-					</a>
-					<a href="#login">
-					<button class="text" onclick="login()">Login</button>
-					</a>
-				</div>
+
 			</div>
 
 
@@ -64,8 +69,8 @@
 				</div>
 			</div>
 
-			<div id="loginScreen" class="screen">
-				<form id="login" class="input-group">
+			<div id="loginScreen" class="screen login-container">
+				<form id="login" class="login-form">
 					<input id="loginUser" name="regUser" type="text" class="input-field" placeholder="Username" required>
 					<input id="loginPass" name="regPass" type="password" class="input-field" placeholder="Enter Password" required>
 					<button type="submit" class="submit-btn">Login</button>

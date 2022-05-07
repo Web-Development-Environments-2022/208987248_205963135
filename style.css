@@ -80,6 +80,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
+    gap: 50px;
 }
 
 .main-buttons-contaner {
@@ -93,12 +94,34 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 25%;
+    left: 40%;
 }
 .register-form {
     width: 350px;
+    height: 500px;
     background-color: #4F759B;
     border-radius: 10px;
 }
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 25%;
+    left: 40%;
+}
+
+.login-form {
+    width: 350px;
+    height: 300px;
+    background-color: #4F759B;
+    border-radius: 10px;
+}
+
 
 .input-field {
     width: 90% !important;
@@ -109,7 +132,7 @@ body {
 	display: flex;
 	justify-content: center;
 }
-
+/* 
 .navigation ul
 {
     padding: 0px;
@@ -132,7 +155,7 @@ body {
     padding: 15px 35px;
     display: block;
     text-align: center;
-}
+} */
 
 .form-box{
     width: 380px;
@@ -214,7 +237,7 @@ body {
     position: absolute;
     top: 25%;
     left: 40%;
-    transform: translate(-25%, -40%);
+    /* transform: translate(-25%, -40%); */
 }
 
 .modal {
@@ -256,7 +279,7 @@ body {
 
   .input-field::placeholder {
     color: white !important;
-    opacity: !important; /* Firefox */
+    opacity:1 !important; /* Firefox */
   }
   
   .input-field:-ms-input-placeholder {
