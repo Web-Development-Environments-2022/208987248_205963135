@@ -1,7 +1,7 @@
 class Pacman{
     constructor(){
         this.livesLeft = 5;
-        this.interval = setInterval(UpdatePosition, 100);
+        // this.interval = setInterval(UpdatePosition, 150);
         this.imgUp = new Image();
         this.imgUp.src = "Images/pacman_up.png";
         this.imgDown = new Image();
@@ -14,23 +14,17 @@ class Pacman{
     }
 
     drawPacman(center){
-        // draw pacman by direction
-        console.log("drawPacman")
         if (this.direction == "UP"){
-            console.log("UP")
-            context.drawImage(this.imgUp, center.x-10, center.y-10, board.cellWidth*0.7, 0.7*board.cellHeight);
+            context.drawImage(this.imgUp, center.x-30, center.y-30, 60, 60);
         }
         else if (this.direction == "DOWN"){
-            console.log("DOWN")
-            context.drawImage(this.imgDown, center.x-10, center.y-10, board.cellWidth*0.7, 0.7*board.cellHeight);
+            context.drawImage(this.imgDown, center.x-30, center.y-30, 60, 60);
         }
         else if (this.direction == "RIGHT"){
-            console.log("RIGHT")
-            context.drawImage(this.imgRight, center.x-10, center.y-10, board.cellWidth*0.7, 0.7*board.cellHeight);
+            context.drawImage(this.imgRight, center.x-30, center.y-30, 60, 60);
         }
-        else{
-            console.log("LEFT")
-            context.drawImage(this.imgLeft, center.x-10, center.y-10, board.cellWidth*0.7, 0.7*board.cellHeight);
+        else if (this.direction == "LEFT"){
+            context.drawImage(this.imgLeft, center.x-30, center.y-30, 60, 60);
         }
     }
 }

@@ -26,9 +26,8 @@ $(document).ready(function() {
 });
 
 function Start() {
-	boardGame = new Board(20, 20)
-	board = boardGame.generateaBoard()
-	pacman = new Pacman();
+	boardGame = new Board(15, 15);
+	board = boardGame.generateaBoard();
 	curColor5 = newColor5;
 	curColor15 = newColor15;
 	curColor25 = newColor25;
@@ -47,7 +46,8 @@ function Start() {
 		},
 		false
 	);
-	interval = setInterval(UpdatePosition, 100);
+	pacman = new Pacman();
+	interval = setInterval(UpdatePosition, 125);
 }
 
 function GetKeyPressed() {
@@ -75,22 +75,9 @@ function Draw() { //TODO change the drawings
 			center.x = i * 60 + 30;
 			center.y = j * 60 + 30;
 			if (board[i][j] == "Pacman") {
-				
-				context.drawImage(pacman.imgRight, center.x-10, center.y-10, board.cellWidth*0.7, 0.7*board.cellHeight);
-				// pacman.drawPacman(center);
-				// context.beginPath();
-				// context.arc(center.x, center.y, 30, 0.15 * Math.PI, 1.85 * Math.PI); // half circle
-				// context.lineTo(center.x, center.y);
-				// context.fillStyle = pac_color; //color
-				// context.fill();
-				// context.beginPath();
-				// context.arc(center.x + 5, center.y - 15, 5, 0, 2 * Math.PI); // circle
-				// context.fillStyle = "black"; //color
-				// context.fill();
-				// const img = new Image();
-				// img.src = 'Images/pacman_right.png';
-				// context.drawImage(img, center.x, center.y)
-			} else if (board[i][j] == "Food5") { //TODO change food size and colors to 5 15 25
+				pacman.drawPacman(center);
+			} 
+			else if (board[i][j] == "Food5") { //TODO change food size and colors to 5 15 25
 				context.beginPath();
 				context.arc(center.x, center.y, 10, 0, 2 * Math.PI); // circle
 				context.fillStyle = curColor5; //color
@@ -164,14 +151,17 @@ function UpdatePosition() {
 	if (time_elapsed > curMaxGameTime && score >= 100) { //todo change to num of total points
 		window.clearInterval(interval);
 		window.alert("Winner");
+		clearInterval(interval);
 	}
 	else if(time_elapsed > curMaxGameTime && score < 100){
 		window.clearInterval(interval);
 		window.alert("You are better than " + score + " points!");
+		clearInterval(interval);
 	}
 	else if(pacman.livesLeft == 0){
 		window.clearInterval(interval);
 		window.alert("Loser!");
+		clearInterval(interval);
 	}
 	else {
 		Draw();
