@@ -12,6 +12,7 @@ var curColor15;
 var curColor25;
 var pacman;
 
+
 $(document).ready(function() {
 	context = canvas.getContext("2d");
 	$(window).keydown(function(event){
@@ -26,7 +27,7 @@ $(document).ready(function() {
 });
 
 function Start() {
-	boardGame = new Board(20, 20)
+	boardGame = new Board(12, 12)
 	board = boardGame.generateaBoard()
 	pacman = new Pacman();
 	curColor5 = newColor5;
@@ -67,6 +68,7 @@ function GetKeyPressed() {
 
 function Draw() { //TODO change the drawings 
 	canvas.width = canvas.width; //clean board
+	canvas.style.border = '1px solid #000000'
 	lblScore.value = score;
 	lblTime.value = time_elapsed;
 	for (var i = 0; i < boardGame.colNum; i++) {
@@ -157,22 +159,25 @@ function UpdatePosition() {
 	board[shape.i][shape.j] = "Pacman";
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
-	// if (score >= 20 && time_elapsed <= 10) {
-	// 	pac_color = "green";
-	// }
+	if (score >= 20 && time_elapsed <= 10) {
+		pac_color = "green";
+	}
 	// TODO change the alert window in game over modal
-	if (time_elapsed > curMaxGameTime && score >= 100) { //todo change to num of total points
-		window.clearInterval(interval);
-		window.alert("Winner");
-	}
-	else if(time_elapsed > curMaxGameTime && score < 100){
-		window.clearInterval(interval);
-		window.alert("You are better than " + score + " points!");
-	}
-	else if(pacman.livesLeft == 0){
-		window.clearInterval(interval);
-		window.alert("Loser!");
-	}
+	// if (time_elapsed > curMaxGameTime && score >= 100) { //todo change to num of total points
+	// 	window.clearInterval(interval);
+	// 	window.alert("Winner");
+	// 	return;
+	// }
+	// else if(time_elapsed > curMaxGameTime && score < 100){
+	// 	window.clearInterval(interval);
+	// 	window.alert("You are better than " + score + " points!");
+	// 	return;
+	// }
+	// else if(pacman.livesLeft == 0){
+	// 	window.clearInterval(interval);
+	// 	window.alert("Loser!");
+	// 	return;
+	// }
 	else {
 		Draw();
 	}

@@ -12,12 +12,6 @@
 				</a>
 				<a href="#about">
 					<button type="button" id="myBtn" class="btn btn-primary navbar-button">About</button>
-					<div id="myModal" class="modal">
-						<div class="modal-content">
-							<span class="close">&times;</span>
-							<p>This Game was made by Maor Biton Dor and Dana Hohenstein</p>
-						</div>
-					</div>
 				</a>
 			</div>
 			<header class="pacman-container">
@@ -34,27 +28,22 @@
 			</div>
 		</div>
 	
-		<div id="content" >
-			<div class="middle-container">
-				<div id="homeScreen" class="screen main-gif-container">
-					<div class="tenor-gif-embed" data-postid="12836291" data-share-method="host" data-aspect-ratio="1.77778" data-width="25%"><a href="https://tenor.com/view/old-school-video-games-pac-man-gif-12836291">Old School Video Games GIF</a>from <a href="https://tenor.com/search/old+school-gifs">Old School GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
-					<div class="main-buttons-contaner">
-						<a href="#register">
-						<!-- <button class="text" onclick="register()">Register</button> -->
-						<button type="button" class="text btn btn-primary navbar-button" onclick="register()">Register</button>
+		<div id="content" class="middle-container">
+			<div id="homeScreen" class="screen main-gif-container">
+				<div class="tenor-gif-embed" data-postid="12836291" data-share-method="host" data-aspect-ratio="1.77778" data-width="25%"><a href="https://tenor.com/view/old-school-video-games-pac-man-gif-12836291">Old School Video Games GIF</a>from <a href="https://tenor.com/search/old+school-gifs">Old School GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+				<div class="main-buttons-contaner">
+					<a href="#register">
+					<!-- <button class="text" onclick="register()">Register</button> -->
+					<button type="button" class="text btn btn-primary navbar-button" onclick="register()">Register</button>
 
-						</a>
-						<a href="#login">
-						<!-- <button class="text" onclick="login()">Login</button> -->
-						<button type="button" class="text btn btn-primary navbar-button" onclick="login()">Login</button>
+					</a>
+					<a href="#login">
+					<!-- <button class="text" onclick="login()">Login</button> -->
+					<button type="button" class="text btn btn-primary navbar-button" onclick="login()">Login</button>
 
-						</a>
-					</div>
+					</a>
 				</div>
-
 			</div>
-
-
 			<div id="pacmanScreen" class="screen">
 				<div id="score">
 					<label for="lblScore">SCORE:</label>
@@ -65,7 +54,7 @@
 					<input id="lblTime" type="text" />
 				</div>
 				<div id="game">
-					<canvas id="canvas" height="1200" width="1200"></canvas>
+					<canvas id="canvas" height="800" width="800"></canvas>
 				</div>
 			</div>
 
@@ -158,6 +147,12 @@
 	
 		<div id="footer">
 
+		</div>
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>This Game was made by Maor Biton Dor and Dana Hohenstein</p>
+			</div>
 		</div>
 		<script src="./jquery-3.4.1.slim.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

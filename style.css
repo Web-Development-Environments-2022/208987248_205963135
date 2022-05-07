@@ -14,7 +14,6 @@ body {
 .navbar-container {
     background-color: #9b9b9b;
     width: 100%;
-    position: fixed;
     display: flex;
     flex-direction: row;
 }
@@ -48,6 +47,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: inherit;
+    margin-top: 50px;
 }
 
 .ourNames {
@@ -67,10 +68,10 @@ body {
 
 .middle-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     align-items: center;
     justify-content: center;
-    height: 72vh;
+    height: 500px;
     gap: 50px;
 }
 
@@ -94,9 +95,10 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    margin-top: 50px;
+    /* position: absolute;
     top: 25%;
-    left: 40%;
+    left: 40%; */
 }
 .register-form {
     width: 350px;
@@ -110,9 +112,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    /* position: absolute;
     top: 25%;
-    left: 40%;
+    left: 40%; */
 }
 
 .login-form {
@@ -187,9 +189,9 @@ body {
 }
 
 #btn{
-    top: 0;
+    /* top: 0;
     left: 0;
-    position: absolute;
+    position: absolute; */
     width: 110px;
     height: 100%;
     background: linear-gradient(to right,#ffee00, #ff8f8f);
@@ -234,9 +236,9 @@ body {
 
 #loginScreen{
     /* visibility: hidden; */
-    position: absolute;
+    /* position: absolute;
     top: 25%;
-    left: 40%;
+    left: 40%; */
     /* transform: translate(-25%, -40%); */
 }
 
@@ -299,9 +301,11 @@ body {
 } */
 
 #settingScreen{
-    position: absolute;
+    /* position: absolute;
     top: 25%;
-    left: 40%;
+    left: 40%; */
+    height: inherit;
+    margin-top: 50px;
 }
 
 .settings-form{
@@ -314,7 +318,8 @@ body {
     position: static;
 }
 #pacmanScreen{
-    position: absolute;
+    /* position: absolute;
     top: 25%;
-    left: 40%;
+    left: 40%; */
+    margin-top: 400px;
 }
