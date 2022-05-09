@@ -28,7 +28,7 @@ $(document).ready(function() {
 });
 
 function Start() {
-	boardGame = new Board(28, 28)
+	boardGame = new Board(20, 20)
 	board = boardGame.generateaBoard()
 	ghostsArray = ["ORANGE", "RED", "PINK", "GREEN"];
 	curGhostsArray = ghostsArray.slice(0, curNumOfMonsters);
