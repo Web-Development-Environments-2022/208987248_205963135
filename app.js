@@ -11,7 +11,8 @@ var curColor5;
 var curColor15;
 var curColor25;
 var pacman;
-
+var ghostsArray;
+var monstersArray;
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -27,8 +28,16 @@ $(document).ready(function() {
 });
 
 function Start() {
-	boardGame = new Board(12, 12)
+	boardGame = new Board(28, 28)
 	board = boardGame.generateaBoard()
+	ghostsArray = ["ORANGE", "RED", "PINK", "GREEN"];
+	curGhostsArray = ghostsArray.slice(0, curNumOfMonsters);
+	monstersArray = new Array()
+	for (i=0; i<curGhostsArray.length; i++){
+		let newGhost = new Ghost(curGhostsArray[i]);
+		monstersArray.push(newGhost);
+	}
+	console.log(monstersArray);
 	curColor5 = newColor5;
 	curColor15 = newColor15;
 	curColor25 = newColor25;
@@ -66,7 +75,7 @@ function GetKeyPressed() {
 	}
 }
 
-function Draw() { //TODO change the drawings 
+function Draw() {
 	canvas.width = canvas.width; //clean board
 	canvas.style.border = '1px solid #000000'
 	lblScore.value = score;
@@ -74,32 +83,32 @@ function Draw() { //TODO change the drawings
 	for (var i = 0; i < boardGame.colNum; i++) {
 		for (var j = 0; j < boardGame.rowNum; j++) {
 			var center = new Object();
-			center.x = i * 60 + 30;
-			center.y = j * 60 + 30;
+			center.x = i * 30 + 15;
+			center.y = j * 30 + 15;
 			if (board[i][j] == "Pacman") {
 				pacman.drawPacman(center);
 			} 
-			else if (board[i][j] == "Food5") { //TODO change food size and colors to 5 15 25
+			else if (board[i][j] == "Food5") {
 				context.beginPath();
-				context.arc(center.x, center.y, 10, 0, 2 * Math.PI); // circle
+				context.arc(center.x, center.y, 3, 0, 2 * Math.PI); // circle
 				context.fillStyle = curColor5; //color
 				context.fill();
 			} 
-			else if (board[i][j] == "Food15") { //TODO change food size and colors to 5 15 25
+			else if (board[i][j] == "Food15") {
 				context.beginPath();
-				context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
+				context.arc(center.x, center.y, 5, 0, 2 * Math.PI); // circle
 				context.fillStyle = curColor15; //color
 				context.fill();
 			}
-			else if (board[i][j] == "Food25") { //TODO change food size and colors to 5 15 25
+			else if (board[i][j] == "Food25") {
 				context.beginPath();
-				context.arc(center.x, center.y, 20, 0, 2 * Math.PI); // circle
+				context.arc(center.x, center.y, 7, 0, 2 * Math.PI); // circle
 				context.fillStyle = curColor25; //color
 				context.fill();
 			}
 			else if (board[i][j] == "Wall") {
 				context.beginPath();
-				context.rect(center.x - 30, center.y - 30, 60, 60);
+				context.rect(center.x - 15, center.y - 15, 30, 30);
 				context.fillStyle = "grey"; //color
 				context.fill();
 			}

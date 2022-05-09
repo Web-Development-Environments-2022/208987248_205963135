@@ -15,16 +15,16 @@ class Pacman{
 
     drawPacman(center){
         if (this.direction == "UP"){
-            context.drawImage(this.imgUp, center.x-30, center.y-30, 60, 60);
+            context.drawImage(this.imgUp, center.x-15, center.y-15, 30, 30);
         }
         else if (this.direction == "DOWN"){
-            context.drawImage(this.imgDown, center.x-30, center.y-30, 60, 60);
+            context.drawImage(this.imgDown, center.x-15, center.y-15, 30, 30);
         }
         else if (this.direction == "RIGHT"){
-            context.drawImage(this.imgRight, center.x-30, center.y-30, 60, 60);
+            context.drawImage(this.imgRight, center.x-15, center.y-15, 30, 30);
         }
         else if (this.direction == "LEFT"){
-            context.drawImage(this.imgLeft, center.x-30, center.y-30, 60, 60);
+            context.drawImage(this.imgLeft, center.x-15, center.y-15, 30, 30);
         }
     }
 }
