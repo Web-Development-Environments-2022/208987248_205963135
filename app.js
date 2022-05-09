@@ -1,7 +1,7 @@
 var context;
-var shape = new Object();
-var board;
+var pacmanLocation = new Object();
 var boardGame;
+var board;
 var score;
 var pac_color;
 var start_time;
@@ -13,6 +13,7 @@ var curColor25;
 var pacman;
 var ghostsArray;
 var monstersArray;
+var ghostIndex = 0;
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -34,10 +35,14 @@ function Start() {
 	curGhostsArray = ghostsArray.slice(0, curNumOfMonsters);
 	monstersArray = new Array()
 	for (i=0; i<curGhostsArray.length; i++){
-		let newGhost = new Ghost(curGhostsArray[i]);
+		let emptyCell = boardGame.getRandomEmptyCell();
+		let centerGhost = new Object();
+		centerGhost.x = emptyCell[0] * 30 + 15;
+		centerGhost.y = emptyCell[1] * 30 + 15;
+		let newGhost = new Ghost(curGhostsArray[i], centerGhost);
 		monstersArray.push(newGhost);
+		board[emptyCell[0]][emptyCell[1]] = "Ghost";
 	}
-	console.log(monstersArray);
 	curColor5 = newColor5;
 	curColor15 = newColor15;
 	curColor25 = newColor25;
@@ -57,6 +62,7 @@ function Start() {
 		false
 	);
 	pacman = new Pacman();
+	Draw();
 	interval = setInterval(UpdatePosition, 125);
 }
 
@@ -86,6 +92,8 @@ function Draw() {
 			center.x = i * 30 + 15;
 			center.y = j * 30 + 15;
 			if (board[i][j] == "Pacman") {
+				pacmanLocation.i = i;
+				pacmanLocation.j = j;
 				pacman.drawPacman(center);
 			} 
 			else if (board[i][j] == "Food5") {
@@ -112,47 +120,59 @@ function Draw() {
 				context.fillStyle = "grey"; //color
 				context.fill();
 			}
+			else if (board[i][j] == "Ghost") {
+				
+				// console.log(monstersArray[ghostIndex]);
+				context.beginPath();
+				context.rect(center.x - 15, center.y - 15, 30, 30);
+				context.fillStyle = "red"; //color
+				context.fill();
+				// monstersArray[ghostIndex++].drawGhost();
+			}
 		}
 	}
 }
 
 function UpdatePosition() {
-	board[shape.i][shape.j] = "Empty";
+	if (pacmanLocation.i==undefined || pacmanLocation.j==undefined){
+		return
+	}
+	board[pacmanLocation.i][pacmanLocation.j] = "Empty";
 	var x = GetKeyPressed();
 	if (x == "UP") {
 		pacman.direction = "UP";
-		if (shape.j > 0 && board[shape.i][shape.j - 1] != "Wall") {
-			shape.j--;
+		if (pacmanLocation.j > 0 && board[pacmanLocation.i][pacmanLocation.j - 1] != "Wall") {
+			pacmanLocation.j--;
 		}
 	}
 	if (x == "DOWN") {
 		pacman.direction = "DOWN";
-		if (shape.j < (boardGame.rowNum - 1) && board[shape.i][shape.j + 1] != "Wall") {
-			shape.j++;
+		if (pacmanLocation.j < (boardGame.rowNum - 1) && board[pacmanLocation.i][pacmanLocation.j + 1] != "Wall") {
+			pacmanLocation.j++;
 		}
 	}
 	if (x == "LEFT") {
 		pacman.direction = "LEFT";
-		if (shape.i > 0 && board[shape.i - 1][shape.j] != "Wall") {
-			shape.i--;
+		if (pacmanLocation.i > 0 && board[pacmanLocation.i - 1][pacmanLocation.j] != "Wall") {
+			pacmanLocation.i--;
 		}
 	}
 	if (x == "RIGHT") {
 		pacman.direction = "RIGHT";
-		if (shape.i < (boardGame.colNum - 1) && board[shape.i + 1][shape.j] != "Wall") {
-			shape.i++;
+		if (pacmanLocation.i < (boardGame.colNum - 1) && board[pacmanLocation.i + 1][pacmanLocation.j] != "Wall") {
+			pacmanLocation.i++;
 		}
 	}
-	if (board[shape.i][shape.j] == "Food5") {
+	if (board[pacmanLocation.i][pacmanLocation.j] == "Food5") {
 		score += 5;
 	}
-	else if (board[shape.i][shape.j] == "Food15") {
+	else if (board[pacmanLocation.i][pacmanLocation.j] == "Food15") {
 		score += 15;
 	}
-	else if (board[shape.i][shape.j] == "Food25") {
+	else if (board[pacmanLocation.i][pacmanLocation.j] == "Food25") {
 		score += 25;
 	}
-	board[shape.i][shape.j] = "Pacman";
+	board[pacmanLocation.i][pacmanLocation.j] = "Pacman";
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
 	// if (score >= 20 && time_elapsed <= 10) {
