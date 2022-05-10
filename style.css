@@ -305,7 +305,7 @@ body {
     top: 25%;
     left: 40%; */
     height: inherit;
-    margin-top: 50px;
+    margin-top: 200px;
 }
 
 .settings-form{
@@ -321,5 +321,23 @@ body {
     /* position: absolute;
     top: 25%;
     left: 40%; */
-    margin-top: 400px;
+    margin-top:300px;
+}
+
+#detailsScreen{
+    /* position: absolute;
+    top: 25%;
+    left: 40%; */
+    height: inherit;
+    margin-top: 200px;
+}
+
+.details-form{
+    width: 350px;
+    height: 650px;
+    background-color: #9b9b9b;
+    border-radius: 10px;
+    vertical-align: top;
+    padding: 1rem 1rem;
+    position: static;
 }
