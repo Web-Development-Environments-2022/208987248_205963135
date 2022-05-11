@@ -226,21 +226,21 @@ function UpdatePosition() {
 	// 	pac_color = "green";
 	// }
 	// TODO change the alert window in game over modal
-	// if (time_elapsed > curMaxGameTime && score >= 100) { //todo change to num of total points
-	// 	// window.clearInterval(interval);
-	// 	window.alert("Winner");
-	// 	window.clearInterval(interval);
-	// 	switchScreens("settingScreen");
-	// 	return;
-	// }
-	// else if(time_elapsed > curMaxGameTime && score < 100){
-	// 	// window.clearInterval(interval);
-	// 	window.alert("You are better than " + score + " points!");
-	// 	window.clearInterval(interval);
-	// 	switchScreens("settingScreen");
-	// 	return;
-	// }
-	// else 
+	if (time_elapsed > curMaxGameTime && score >= 100) { //todo change to num of total points
+		// window.clearInterval(interval);
+		window.alert("Winner");
+		window.clearInterval(interval);
+		switchScreens("settingScreen");
+		return;
+	}
+	else if(time_elapsed > curMaxGameTime && score < 100){
+		// window.clearInterval(interval);
+		window.alert("You are better than " + score + " points!");
+		window.clearInterval(interval);
+		switchScreens("settingScreen");
+		return;
+	}
+	else 
 	if(pacman.livesLeft == 0){
 		// window.clearInterval(interval);
 		window.alert("Loser!");
