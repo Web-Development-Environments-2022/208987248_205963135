@@ -117,7 +117,7 @@ function Draw() {
 			else if (board[i][j] == "Wall") {
 				context.beginPath();
 				context.rect(center.x - 15, center.y - 15, 30, 30);
-				context.fillStyle = "grey"; //color
+				context.fillStyle = "#2e2d2d"; //color
 				context.fill();
 			}
 			else if (board[i][j] == "Ghost") {

@@ -28,7 +28,7 @@
 			</div>
 		</div>
 	
-		<div id="content" class="middle-container">
+		<div id="content" class="container-all">
 			<div id="homeScreen" class="screen main-gif-container">
 				<div class="tenor-gif-embed" data-postid="12836291" data-share-method="host" data-aspect-ratio="1.77778" data-width="25%"><a href="https://tenor.com/view/old-school-video-games-pac-man-gif-12836291">Old School Video Games GIF</a>from <a href="https://tenor.com/search/old+school-gifs">Old School GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 				<div class="main-buttons-contaner">
@@ -45,20 +45,33 @@
 				</div>
 			</div>
 			<div id="pacmanScreen" class="screen">
-				<div id="score">
+				<!-- <div id="score">
 					<label for="lblScore">SCORE:</label>
 					<input id="lblScore" type="text" />
 				</div>
 				<div id="time">
 					<label for="lblTime">TIME:</label>
 					<input id="lblTime" type="text" />
-				</div>
+				</div> -->
 				<div id="game">
 					<canvas id="canvas" height="600" width="600"></canvas>
 				</div>
 				<div id="detailsScreen">
 					<form id="details" class="details-form">
 						<label><b>Number of lives:</b></label>
+						<br>
+						<br>
+
+						<label for="lblScore"><b>SCORE</b>:</label>
+						<input id="lblScore" type="text" />
+						<br>
+						<br>
+
+						<label for="lblTime"><b>TIME</b>:</label>
+						<input id="lblTime" type="text" />
+						<br>
+						<br>
+
 					</form>
 				</div>
 			</div>
@@ -101,21 +114,21 @@
 					<!-- Change this! -->
 					<label><b>Number of Food points:</b></label>
 					<br>
-					<label>50</label>
+					<label><b>50</b></label>
 					<input type="range" id="foodPointsScale" name="foodPointsScale" min="50" value="50" max="90" step="1" onchange="setValFromScale('foodPointsLabel','foodPointsScale'); changeSettings('FOOD');" required>
-					<label>90</label>
+					<label><b>90</b></label>
 					<br>
 					<label id="foodPointsLabel" > </label>
 					<br>
 					<label><b>Select colors of food points: </b></label>
 					<br>
-					<label> Select color for 5 points ball: </label>
+					<label><b>Select color for 5 points ball:</b>  </label>
 					<input class="color-set" type="color" id="5PointColor" value="#f6355c" name="pointsColor5" onchange="changeSettings('COLOR5')" required>
 					<br>
-					<label> Select color for 15 points ball: </label>
+					<label><b>Select color for 15 points ball:</b>  </label>
 					<input class="color-set" type="color" id="15PointColor" value="#e3a221" name="pointsColor15" onchange="changeSettings('COLOR15')" required>
 					<br>
-					<label> Select color for 25 points ball: </label>
+					<label> <b>Select color for 25 points ball:</b> </label>
 					<input class="color-set" type="color" id="25PointColor" value="#316600" name="pointsColor25" onchange="changeSettings('COLOR25')" required>
 					<br>
 					<br>
@@ -152,7 +165,11 @@
 		</div>
 	
 		<div id="footer">
-
+			<footer style="color: rgb(255, 252, 252);">
+				<p style="margin: 0;">This Game was made by Maor Biton Dor and Dana Hohenstein</p>
+				<p style="margin: 0;">Contact us at - danahoh@post.bgu.ac.il & maorbitondor@post.bgu.ac.il</p>
+		
+			</footer>
 		</div>
 		<div id="myModal" class="modal">
 			<div class="modal-content">
