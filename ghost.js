@@ -6,21 +6,21 @@ class Ghost{
         this.colPosition = colPosition;
         this.rowPosition = rowPosition;
         this.orangeGhostRight = new Image();
-        this.orangeGhostRight.src = "Images/orange_ghost_right.jpg";
+        this.orangeGhostRight.src = "Images/orange_ghost_right.png";
         this.orangeGhostLeft = new Image();
-        this.orangeGhostLeft.src = "Images/orange_ghost_left.jpg";
+        this.orangeGhostLeft.src = "Images/orange_ghost_left.png";
         this.redGhostRight = new Image();
-        this.redGhostRight.src = "Images/red_ghost_right.jpg";
+        this.redGhostRight.src = "Images/red_ghost_right.png";
         this.redGhostLeft = new Image();
-        this.redGhostLeft.src = "Images/red_ghost_left.jpg";
+        this.redGhostLeft.src = "Images/red_ghost_left.png";
         this.pinkGhostRight = new Image();
         this.pinkGhostRight.src = "Images/pink_ghost_right.png";
         this.pinkGhostLeft = new Image();
         this.pinkGhostLeft.src = "Images/pink_ghost_left.png";
         this.greenGhostRight = new Image();
-        this.greenGhostRight.src = "Images/green_ghost_right.jpg";
+        this.greenGhostRight.src = "Images/green_ghost_right.png";
         this.greenGhostLeft = new Image();
-        this.greenGhostLeft.src = "Images/green_ghost_left.jpg";
+        this.greenGhostLeft.src = "Images/green_ghost_left.png";
         // this.intervalGhost = setInterval(this.drawGhost, 400)
     }
 
