@@ -15,7 +15,7 @@ var ghostsColors;
 var ghostIndex = 0;
 var ghostLocation;
 var ghostsArray;
-
+var drawGhostIndex;
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -33,16 +33,22 @@ $(document).ready(function() {
 function Start() {
 	boardGame = new Board(20, 20)
 	board = boardGame.generateaBoard()
+	pacman = new Pacman();
 	startAgain();
 }
 
 function startAgain(){
+	if(pacman == undefined){
+		pacman = new Pacman();
+	}
 	ghostsColors = ["ORANGE", "RED", "PINK", "GREEN"];
 	ghostLocation = [[1,1], [1,18], [18,1], [18,18]];
-	ghostsColors = ghostsColors.slice(0,curNumOfMonsters);
+	// ghostsColors = ghostsColors.slice(0,curNumOfMonsters);
 	ghostsArray = new Array();
 	for(let i=0;i<curNumOfMonsters;i++){
 		ghostsArray.push(new Ghost(ghostsColors[i], ghostLocation[i][0], ghostLocation[i][1]));
+		// console.log(ghostsArray[i]);
+		// console.log(pacman);
 	}
 	curColor5 = newColor5;
 	curColor15 = newColor15;
@@ -62,7 +68,6 @@ function startAgain(){
 		},
 		false
 	);
-	pacman = new Pacman();
 	Draw();
 	intervalGhost = setInterval(updateGhostPosition, 375);
 	interval = setInterval(UpdatePosition, 125);
@@ -88,6 +93,7 @@ function Draw() {
 	canvas.style.border = '1px solid #000000'
 	lblScore.value = score;
 	lblTime.value = time_elapsed;
+	drawGhostIndex = 0;
 	for (var i = 0; i < boardGame.colNum; i++) {
 		for (var j = 0; j < boardGame.rowNum; j++) {
 			var center = new Object();
@@ -126,12 +132,16 @@ function Draw() {
 				// console.log(monstersArray[ghostIndex]);
 				// let newGhost = new Ghost(ghostsArray[ghostIndex++], center)
 				// newGhost.drawGhost();
-				context.beginPath();
-				context.rect(center.x - 15, center.y - 15, 30, 30);
-				context.fillStyle = "red"; //color
-				context.fill();
+				// context.beginPath();
+				// context.rect(center.x - 15, center.y - 15, 30, 30);
+				// context.fillStyle = "red"; //color
+				// context.fill();
 				// let newGhost = new Ghost(ghostsArray[ghostIndex++], center)
-				// newGhost.drawGhost();
+				// console.log(ghostsArray[drawGhostIndex]);
+				if(drawGhostIndex < curNumOfMonsters){
+					ghostsArray[drawGhostIndex++].drawGhost(center);
+				}
+				
 			}
 		}
 	}
@@ -141,10 +151,19 @@ function updateGhostPosition(){
 	for(let i=0;i<curNumOfMonsters;i++){
 		newGhostLocation = ghostsArray[i].calculateDistance(pacmanLocation.i, pacmanLocation.j);
 		board[ghostsArray[i].colPosition][ghostsArray[i].rowPosition] = ghostsArray[i].prevCellValue;
-		console.log(newGhostLocation);
+		// console.log(newGhostLocation);
 		ghostsArray[i].prevCellValue = board[newGhostLocation[0]][newGhostLocation[1]];
 		ghostsArray[i].colPosition = newGhostLocation[0];
 		ghostsArray[i].rowPosition = newGhostLocation[1];
+		if(board[ghostsArray[i].colPosition][ghostsArray[i].rowPosition] == "Pacman"){
+			pacman.livesLeft--;
+			score -= 10;
+			board[pacmanLocation.i][pacmanLocation.j] = "Empty";
+			console.log(pacman.livesLeft);
+			window.clearInterval(interval);
+			restartGame();
+			return;
+		}
 		board[ghostsArray[i].colPosition][ghostsArray[i].rowPosition] = "Ghost";
 	}
 	Draw();
@@ -196,9 +215,11 @@ function UpdatePosition() {
 		console.log(pacman.livesLeft);
 		window.clearInterval(interval);
 		restartGame();
+		return;
 	}
-	board[pacmanLocation.i][pacmanLocation.j] = "Pacman";
-	
+	else{
+		board[pacmanLocation.i][pacmanLocation.j] = "Pacman";
+	}
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
 	// if (score >= 20 && time_elapsed <= 10) {

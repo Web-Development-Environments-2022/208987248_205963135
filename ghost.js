@@ -82,7 +82,7 @@ class Ghost{
         let minValue = Infinity;
         let minRowPostion = this.rowPosition;
         let minColPostion = this.colPosition;
-        if(board[this.colPosition][this.rowPosition-1] != "Wall"){
+        if(board[this.colPosition][this.rowPosition-1] != "Wall" && board[this.colPosition][this.rowPosition-1] != "Ghost"){
            let upValue = Math.sqrt(Math.pow(pacmanX-this.colPosition, 2) + Math.pow(pacmanY-(this.rowPosition-1), 2));
            if(upValue < minValue){
                minValue = upValue;
@@ -90,7 +90,7 @@ class Ghost{
                minColPostion = this.colPosition;
            }
         }
-        if(board[this.colPosition][this.rowPosition+1] != "Wall"){
+        if(board[this.colPosition][this.rowPosition+1] != "Wall" && board[this.colPosition][this.rowPosition+1] != "Ghost"){
             let downValue = Math.sqrt(Math.pow(pacmanX-this.colPosition, 2) + Math.pow(pacmanY-(this.rowPosition+1), 2))
             if(downValue < minValue){
                 minValue = downValue;
@@ -98,7 +98,7 @@ class Ghost{
                 minColPostion = this.colPosition;
             }
         }
-        if(board[this.colPosition+1][this.rowPosition] != "Wall"){
+        if(board[this.colPosition+1][this.rowPosition] != "Wall" && board[this.colPosition-1][this.rowPosition] != "Ghost"){
             let rightValue = Math.sqrt(Math.pow(pacmanX-(this.colPosition+1), 2) + Math.pow(pacmanY-this.rowPosition, 2))
             if(rightValue < minValue){
                 minValue = rightValue;
@@ -106,7 +106,7 @@ class Ghost{
                 minColPostion = this.colPosition+1;
             }
         }
-        if(board[this.colPosition-1][this.rowPosition] != "Wall"){
+        if(board[this.colPosition-1][this.rowPosition] != "Wall" && board[this.colPosition+1][this.rowPosition] != "Ghost"){
             let leftValue = Math.sqrt(Math.pow(pacmanX-(this.colPosition-1), 2) + Math.pow(pacmanY-this.rowPosition, 2))
             if(leftValue < minValue){
                 minValue = leftValue;
@@ -114,7 +114,7 @@ class Ghost{
                 minColPostion = this.colPosition-1;
             }
         }
-        console.log(minValue);
+        // console.log(minValue);
         return [minColPostion, minRowPostion]; // return the cell that will bring the ghost closest to the pacman
     }
 }
