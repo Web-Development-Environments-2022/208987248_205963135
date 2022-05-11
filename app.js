@@ -38,7 +38,7 @@ function Start() {
 }
 
 function startAgain(){
-	if(pacman == undefined){
+	while(pacman == undefined){
 		pacman = new Pacman();
 	}
 	ghostsColors = ["ORANGE", "RED", "PINK", "GREEN"];
@@ -229,6 +229,9 @@ function UpdatePosition() {
 	if (time_elapsed > curMaxGameTime && score >= 100) { //todo change to num of total points
 		// window.clearInterval(interval);
 		window.alert("Winner");
+		time_elapsed = 0;
+		score = 0;
+		pacman.livesLeft = 5;
 		window.clearInterval(interval);
 		switchScreens("settingScreen");
 		return;
@@ -236,6 +239,9 @@ function UpdatePosition() {
 	else if(time_elapsed > curMaxGameTime && score < 100){
 		// window.clearInterval(interval);
 		window.alert("You are better than " + score + " points!");
+		time_elapsed = 0;
+		score = 0;
+		pacman.livesLeft = 5;
 		window.clearInterval(interval);
 		switchScreens("settingScreen");
 		return;
@@ -244,6 +250,9 @@ function UpdatePosition() {
 	if(pacman.livesLeft == 0){
 		// window.clearInterval(interval);
 		window.alert("Loser!");
+		time_elapsed = 0;
+		score = 0;
+		pacman.livesLeft = 5;
 		window.clearInterval(interval);
 		switchScreens("settingScreen");
 		return;

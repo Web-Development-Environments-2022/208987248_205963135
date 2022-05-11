@@ -118,7 +118,7 @@
 					<input type="range" id="foodPointsScale" name="foodPointsScale" min="50" value="50" max="90" step="1" onchange="setValFromScale('foodPointsLabel','foodPointsScale'); changeSettings('FOOD');" required>
 					<label><b>90</b></label>
 					<br>
-					<label id="foodPointsLabel" > </label>
+					<label id="foodPointsLabel" ><b>50</b></label>
 					<br>
 					<label><b>Select colors of food points: </b></label>
 					<br>
@@ -136,13 +136,13 @@
 					<br>
 					<input type="range" id="gameTimeScale" name="gameTimeScale" min="60" value="60" max="360" step="1" onchange="setValFromScale('gameTimeLabel','gameTimeScale'); changeSettings('TIME');" required>
 					<br>
-					<label id="gameTimeLabel" > </label>
+					<label id="gameTimeLabel"><b>60</b></label>
 					<br>
-					<label><b> Selct number of ghosts: </b></label>
+					<label><b> Select number of ghosts: </b></label>
 					<br>
 					<input type="range" id="monstersScale" name="monstersScale" min="1" value="2" max="4" step="1" onchange="setValFromScale('monstersLabel','monstersScale'); changeSettings('MONSTERS');" required>
 					<br>
-					<label id="monstersLabel" > </label>
+					<label id="monstersLabel" ><b>2</b></label>
 					<button id="submitSettingsBtn" type="submit" class="submit-btn">Start Game</button>
 					<button id="RandomSettingsBtn" type="button" class="submit-btn" onclick="randomSettings()">Random Settings</button>
 				</form>
