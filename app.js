@@ -7,6 +7,8 @@ var pac_color;
 var start_time;
 var time_elapsed;
 var interval;
+var intervalGhost;
+var intervalMovingFood;
 var curColor5;
 var curColor15;
 var curColor25;
@@ -16,6 +18,8 @@ var ghostIndex = 0;
 var ghostLocation;
 var ghostsArray;
 var drawGhostIndex;
+var movingFood;
+var movingFoodLocation = new Object();
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -34,11 +38,21 @@ function Start() {
 	boardGame = new Board(20, 20)
 	board = boardGame.generateaBoard()
 	pacman = new Pacman();
+	movingFood = new MovingFood();
 	startAgain();
 }
 
 function startAgain(){
-	while(pacman == undefined){
+	if(interval != undefined){
+		window.clearInterval(interval);
+	}
+	if(intervalGhost != undefined){
+		window.clearInterval(intervalGhost);
+	}
+	if(intervalMovingFood != undefined){
+		window.clearInterval(intervalMovingFood);
+	}
+	if(pacman == undefined){
 		pacman = new Pacman();
 	}
 	ghostsColors = ["ORANGE", "RED", "PINK", "GREEN"];
@@ -70,6 +84,7 @@ function startAgain(){
 	);
 	Draw();
 	intervalGhost = setInterval(updateGhostPosition, 375);
+	intervalMovingFood = setInterval(updateMovingFoodPosition, 250);
 	interval = setInterval(UpdatePosition, 125);
 }
 
@@ -129,27 +144,70 @@ function Draw() {
 				context.fill();
 			}
 			else if (board[i][j] == "Ghost") {
-				// console.log(monstersArray[ghostIndex]);
-				// let newGhost = new Ghost(ghostsArray[ghostIndex++], center)
-				// newGhost.drawGhost();
-				// context.beginPath();
-				// context.rect(center.x - 15, center.y - 15, 30, 30);
-				// context.fillStyle = "red"; //color
-				// context.fill();
-				// let newGhost = new Ghost(ghostsArray[ghostIndex++], center)
-				// console.log(ghostsArray[drawGhostIndex]);
 				if(drawGhostIndex < curNumOfMonsters){
 					ghostsArray[drawGhostIndex++].drawGhost(center);
 				}
-				
+			}
+			else if (board[i][j] == "MovingFood") {
+				movingFood.drawMovingFood(center);
 			}
 		}
 	}
 }
 
+
+function updateMovingFoodPosition(){
+	if(movingFood.caught){
+		window.clearInterval(intervalMovingFood);
+		return;
+	}
+	let direction = ["UP", "DOWN", "LEFT", "RIGHT"];
+	let randomDirection = direction[Math.floor(Math.random() * 4)]
+	while(randomDirection == movingFood.prevDirection){
+		randomDirection = direction[Math.floor(Math.random() * 4)]
+	}
+	board[movingFoodLocation.i][movingFoodLocation.j] = movingFood.prevCellValue;
+	if (randomDirection == "UP") {
+		movingFood.prevDirection = "UP";
+		if (movingFoodLocation.j > 0 && board[movingFoodLocation.i][movingFoodLocation.j - 1] != "Wall") {
+			movingFoodLocation.j--;
+		}
+	}
+	if (randomDirection == "DOWN") {
+		movingFood.prevDirection = "DOWN";
+		if (movingFoodLocation.j < (boardGame.rowNum - 1) && board[movingFoodLocation.i][movingFoodLocation.j + 1] != "Wall") {
+			movingFoodLocation.j++;
+		}
+	}
+	if (randomDirection == "LEFT") {
+		movingFood.prevDirection = "LEFT";
+		if (movingFoodLocation.i > 0 && board[movingFoodLocation.i - 1][movingFoodLocation.j] != "Wall") {
+			movingFoodLocation.i--;
+		}
+	}
+	if (randomDirection == "RIGHT") {
+		movingFood.prevDirection = "RIGHT";
+		if (movingFoodLocation.i < (boardGame.colNum - 1) && board[movingFoodLocation.i + 1][movingFoodLocation.j] != "Wall") {
+			movingFoodLocation.i++;
+		}
+	}
+	movingFood.prevCellValue = board[movingFoodLocation.i][movingFoodLocation.j];
+	if(!movingFood.caught){
+		board[movingFoodLocation.i][movingFoodLocation.j] = "MovingFood";
+	}
+	// movingFood.drawMovingFood(movingFoodLocation);
+}
+
+
 function updateGhostPosition(){
 	for(let i=0;i<curNumOfMonsters;i++){
 		newGhostLocation = ghostsArray[i].calculateDistance(pacmanLocation.i, pacmanLocation.j);
+		if(ghostsArray[i].colPosition > newGhostLocation[0]){
+			ghostsArray[i].direction = "LEFT";
+		}
+		else if (ghostsArray[i].colPosition < newGhostLocation[0]){
+			ghostsArray[i].direction = "RIGHT";
+		}
 		board[ghostsArray[i].colPosition][ghostsArray[i].rowPosition] = ghostsArray[i].prevCellValue;
 		// console.log(newGhostLocation);
 		ghostsArray[i].prevCellValue = board[newGhostLocation[0]][newGhostLocation[1]];
@@ -157,16 +215,22 @@ function updateGhostPosition(){
 		ghostsArray[i].rowPosition = newGhostLocation[1];
 		if(board[ghostsArray[i].colPosition][ghostsArray[i].rowPosition] == "Pacman"){
 			pacman.livesLeft--;
+			pacman.direction = "RIGHT";
 			score -= 10;
 			board[pacmanLocation.i][pacmanLocation.j] = "Empty";
 			console.log(pacman.livesLeft);
 			window.clearInterval(interval);
+			window.clearInterval(intervalGhost);
+			window.clearInterval(intervalMovingFood);
 			restartGame();
 			return;
 		}
 		board[ghostsArray[i].colPosition][ghostsArray[i].rowPosition] = "Ghost";
+		let centerGhost = new Object();
+		centerGhost.x = ghostsArray[i].colPosition * 30 + 15;
+		centerGhost.y = ghostsArray[i].rowPosition * 30 + 15;
+		// ghostsArray[i].drawGhost(centerGhost);
 	}
-	Draw();
 }
 
 function UpdatePosition() {
@@ -208,12 +272,18 @@ function UpdatePosition() {
 	else if (board[pacmanLocation.i][pacmanLocation.j] == "Food25") {
 		score += 25;
 	}
+	else if (board[pacmanLocation.i][pacmanLocation.j] == "MovingFood") {
+		movingFood.caught = true;
+		score += 50;
+	}
 	if (board[pacmanLocation.i][pacmanLocation.j] == "Ghost"){
 		pacman.livesLeft--;
 		score -= 10;
 		board[pacmanLocation.i][pacmanLocation.j] = "Empty";
 		console.log(pacman.livesLeft);
 		window.clearInterval(interval);
+		window.clearInterval(intervalGhost);
+		window.clearInterval(intervalMovingFood);
 		restartGame();
 		return;
 	}
@@ -233,6 +303,8 @@ function UpdatePosition() {
 		score = 0;
 		pacman.livesLeft = 5;
 		window.clearInterval(interval);
+		window.clearInterval(intervalGhost);
+		window.clearInterval(intervalMovingFood);
 		switchScreens("settingScreen");
 		return;
 	}
@@ -243,6 +315,8 @@ function UpdatePosition() {
 		score = 0;
 		pacman.livesLeft = 5;
 		window.clearInterval(interval);
+		window.clearInterval(intervalGhost);
+		window.clearInterval(intervalMovingFood);
 		switchScreens("settingScreen");
 		return;
 	}
@@ -254,6 +328,8 @@ function UpdatePosition() {
 		score = 0;
 		pacman.livesLeft = 5;
 		window.clearInterval(interval);
+		window.clearInterval(intervalGhost);
+		window.clearInterval(intervalMovingFood);
 		switchScreens("settingScreen");
 		return;
 	}
@@ -280,6 +356,7 @@ function hideScreens(){
 
 function restartGame(){
 	window.clearInterval(intervalGhost);
+	window.clearInterval(intervalMovingFood);
 	window.clearInterval(interval);
 	emptyCell = boardGame.getRandomEmptyCell();
 	board[emptyCell[0]][emptyCell[1]] = "Pacman";

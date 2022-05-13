@@ -25,6 +25,11 @@ class Board {
                     this.newBoard[i][j] = "Ghost"; //ghost
                     index++;
                 }
+                else if(i == 9 && j == 9){
+                    movingFoodLocation.i = i;
+                    movingFoodLocation.j = j;
+                    this.newBoard[i][j] = "MovingFood"; //moving food
+                }
                 else if (
                 (i == 0) || (j==0)|| (i== 19) ||(j==19)  || 
                 (i == 3 && j == 3) || (i==3 && j==4) || (i==3 && j==5) || (i==3 && j==6)||

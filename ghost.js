@@ -98,7 +98,7 @@ class Ghost{
                 minColPostion = this.colPosition;
             }
         }
-        if(board[this.colPosition+1][this.rowPosition] != "Wall" && board[this.colPosition-1][this.rowPosition] != "Ghost"){
+        if(board[this.colPosition+1][this.rowPosition] != "Wall" && board[this.colPosition+1][this.rowPosition] != "Ghost"){
             let rightValue = Math.sqrt(Math.pow(pacmanX-(this.colPosition+1), 2) + Math.pow(pacmanY-this.rowPosition, 2))
             if(rightValue < minValue){
                 minValue = rightValue;
@@ -106,7 +106,7 @@ class Ghost{
                 minColPostion = this.colPosition+1;
             }
         }
-        if(board[this.colPosition-1][this.rowPosition] != "Wall" && board[this.colPosition+1][this.rowPosition] != "Ghost"){
+        if(board[this.colPosition-1][this.rowPosition] != "Wall" && board[this.colPosition-1][this.rowPosition] != "Ghost"){
             let leftValue = Math.sqrt(Math.pow(pacmanX-(this.colPosition-1), 2) + Math.pow(pacmanY-this.rowPosition, 2))
             if(leftValue < minValue){
                 minValue = leftValue;
