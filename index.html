@@ -27,6 +27,26 @@
 				</a>
 			</div>
 		</div>
+
+		<div class="navbar-container-logged-in">
+			<div class="left-buttons-container">
+				<a href="#welcome">
+					<button type="button" class="btn btn-primary navbar-button" onclick="welcome()">Welcome</button>
+				</a>
+				<a href="#about">
+					<button type="button" id="myBtn" class="btn btn-primary navbar-button">About</button>
+				</a>
+			</div>
+			<header class="pacman-container">
+				<img src="Images/3.png" class="logo">
+				<span class="ourNames"> Maor Biton Dor & Dana Hohenstein</span>
+			</header>
+			<div class="right-buttons-container-logged-in">
+				<a href="#logout">
+					<button id="logoutBtn" type="button" onclick="logout()" class="btn btn-primary navbar-button">logout</button>
+				</a>
+			</div>
+		</div>
 	
 		<div id="content" class="container-all">
 			<div id="homeScreen" class="screen main-gif-container">
@@ -59,6 +79,7 @@
 				<div id="detailsScreen">
 					<form id="details" class="details-form">
 						<label><b>Number of lives:</b></label>
+						<img id="hearts" src="" alt="hearts" height="20px">
 						<br>
 						<br>
 
@@ -97,7 +118,27 @@
 
 			<div id="settingScreen" class="screen">
 				<form id="setting" class="settings-form">
-					<ul id="keyboards-select">
+					<table id="keyboards-select">
+						<tr class="firstRow">
+							<td></td>
+							<td>
+								<input id="Up" class="keyboardOption" type="button" value="⇧" placeholder="Enter Up key" name="Up"  onclick="changeKey('UP')" required>
+							</td>
+							<td></td>
+						</tr>
+						<tr class="secondRow">
+							<td>
+								<input id="Left" class="keyboardOption" type="button" value="⇦" placeholder="Enter Left key" name="Left" onclick="changeKey('LEFT')" required>
+							</td>
+							<td>
+								<input id="Down" class="keyboardOption" type="button" value="⇩" placeholder="Enter Down key" name="Down" onclick="changeKey( 'DOWN')" required>
+							</td>
+							<td>
+								<input id="Right" class="keyboardOption" type="button" value="➪" placeholder="Enter Right key" name="Right" onclick="changeKey('RIGHT')" required>
+							</td>
+						</tr>
+					</table>
+					<!-- <ul id="keyboards-select">
 						<li>
 							<input id="Up" class="keyboardOption" type="button" value="⇧" placeholder="Enter Up key" name="Up"  onclick="changeKey('UP')" required>
 						</li>
@@ -110,15 +151,15 @@
 						<li>
 							<input id="Down" class="keyboardOption" type="button" value="⇩" placeholder="Enter Down key" name="Down" onclick="changeKey( 'DOWN')" required>
 						</li>
-					</ul>
+					</ul> -->
 					<!-- Change this! -->
 					<label><b>Number of Food points:</b></label>
 					<br>
 					<label><b>50</b></label>
-					<input type="range" id="foodPointsScale" name="foodPointsScale" min="50" value="50" max="90" step="1" onchange="setValFromScale('foodPointsLabel','foodPointsScale'); changeSettings('FOOD');" required>
+					<input class="scale" type="range" id="foodPointsScale" name="foodPointsScale" min="50" value="50" max="90" step="1" onchange="setValFromScale('foodPointsLabel','foodPointsScale'); changeSettings('FOOD');" required>
 					<label><b>90</b></label>
 					<br>
-					<label id="foodPointsLabel" ><b>50</b></label>
+					<label id="foodPointsLabel" ><b class="scaleValue">50</b></label>
 					<br>
 					<label><b>Select colors of food points: </b></label>
 					<br>
@@ -134,15 +175,15 @@
 					<br>
 					<label><b> Select the time duration the game: </b></label>
 					<br>
-					<input type="range" id="gameTimeScale" name="gameTimeScale" min="60" value="60" max="360" step="1" onchange="setValFromScale('gameTimeLabel','gameTimeScale'); changeSettings('TIME');" required>
+					<input class="scale" type="range" id="gameTimeScale" name="gameTimeScale" min="60" value="60" max="360" step="1" onchange="setValFromScale('gameTimeLabel','gameTimeScale'); changeSettings('TIME');" required>
 					<br>
-					<label id="gameTimeLabel"><b>60</b></label>
+					<label id="gameTimeLabel"><b class="scaleValue">60</b></label>
 					<br>
 					<label><b> Select number of ghosts: </b></label>
 					<br>
-					<input type="range" id="monstersScale" name="monstersScale" min="1" value="2" max="4" step="1" onchange="setValFromScale('monstersLabel','monstersScale'); changeSettings('MONSTERS');" required>
+					<input class="scale" type="range" id="monstersScale" name="monstersScale" min="1" value="2" max="4" step="1" onchange="setValFromScale('monstersLabel','monstersScale'); changeSettings('MONSTERS');" required>
 					<br>
-					<label id="monstersLabel" ><b>2</b></label>
+					<label id="monstersLabel" ><b class="scaleValue">2</b></label>
 					<button id="submitSettingsBtn" type="submit" class="submit-btn">Start Game</button>
 					<button id="RandomSettingsBtn" type="button" class="submit-btn" onclick="randomSettings()">Random Settings</button>
 				</form>
@@ -194,6 +235,8 @@
 		<script type="text/javascript" src="./pacman.js"></script>
 		<script type="text/javascript" src="./ghost.js"></script>
 		<script type="text/javascript" src="./movingFood.js"></script>
+		<script type="text/javascript" src="./medicine.js"></script>
+		<script type="text/javascript" src="./clock.js"></script>
 		<script type="text/javascript" src="./app.js"></script>
 		
 	</body>

@@ -21,12 +21,10 @@ class Ghost{
         this.greenGhostRight.src = "Images/green_ghost_right.png";
         this.greenGhostLeft = new Image();
         this.greenGhostLeft.src = "Images/green_ghost_left.png";
-        // this.intervalGhost = setInterval(this.drawGhost, 400)
     }
 
     drawGhost(centerGhost){
         // console.log(this)
-        // console.log("after")
         if(this.color == "ORANGE"){
             if(this.direction == "RIGHT"){
                 // var orangeGhostRight = new Image();
@@ -82,7 +80,7 @@ class Ghost{
         let minValue = Infinity;
         let minRowPostion = this.rowPosition;
         let minColPostion = this.colPosition;
-        if(board[this.colPosition][this.rowPosition-1] != "Wall" && board[this.colPosition][this.rowPosition-1] != "Ghost"){
+        if(board[this.colPosition][this.rowPosition-1] != "Wall" && board[this.colPosition][this.rowPosition-1] != "Ghost" && board[this.colPosition][this.rowPosition-1] != "MovingFood"){
            let upValue = Math.sqrt(Math.pow(pacmanX-this.colPosition, 2) + Math.pow(pacmanY-(this.rowPosition-1), 2));
            if(upValue < minValue){
                minValue = upValue;
@@ -90,7 +88,7 @@ class Ghost{
                minColPostion = this.colPosition;
            }
         }
-        if(board[this.colPosition][this.rowPosition+1] != "Wall" && board[this.colPosition][this.rowPosition+1] != "Ghost"){
+        if(board[this.colPosition][this.rowPosition+1] != "Wall" && board[this.colPosition][this.rowPosition+1] != "Ghost" && board[this.colPosition][this.rowPosition+1] != "MovingFood"){
             let downValue = Math.sqrt(Math.pow(pacmanX-this.colPosition, 2) + Math.pow(pacmanY-(this.rowPosition+1), 2))
             if(downValue < minValue){
                 minValue = downValue;
@@ -98,7 +96,7 @@ class Ghost{
                 minColPostion = this.colPosition;
             }
         }
-        if(board[this.colPosition+1][this.rowPosition] != "Wall" && board[this.colPosition+1][this.rowPosition] != "Ghost"){
+        if(board[this.colPosition+1][this.rowPosition] != "Wall" && board[this.colPosition+1][this.rowPosition] != "Ghost" && board[this.colPosition+1][this.rowPosition] != "MovingFood"){
             let rightValue = Math.sqrt(Math.pow(pacmanX-(this.colPosition+1), 2) + Math.pow(pacmanY-this.rowPosition, 2))
             if(rightValue < minValue){
                 minValue = rightValue;
@@ -106,7 +104,7 @@ class Ghost{
                 minColPostion = this.colPosition+1;
             }
         }
-        if(board[this.colPosition-1][this.rowPosition] != "Wall" && board[this.colPosition-1][this.rowPosition] != "Ghost"){
+        if(board[this.colPosition-1][this.rowPosition] != "Wall" && board[this.colPosition-1][this.rowPosition] != "Ghost" && board[this.colPosition-1][this.rowPosition] != "MovingFood"){
             let leftValue = Math.sqrt(Math.pow(pacmanX-(this.colPosition-1), 2) + Math.pow(pacmanY-this.rowPosition, 2))
             if(leftValue < minValue){
                 minValue = leftValue;

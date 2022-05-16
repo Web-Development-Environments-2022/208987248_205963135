@@ -137,6 +137,7 @@ function changeSettings(setting){
     switch(setting){
         case "FOOD":
             curNumOfFoodPoints=parseInt(document.getElementById("foodPointsScale").value)
+            setValFromScale("foodPointsLabel", "foodPointsScale");
             break;
         case "COLOR5":
             newColor5=document.getElementById("5PointColor").value
@@ -149,9 +150,11 @@ function changeSettings(setting){
             break;
         case "TIME":
             curMaxGameTime=parseInt(document.getElementById("gameTimeScale").value)
+            setValFromScale("gameTimeLabel", "gameTimeScale");
             break;
         case "MONSTERS":
             curNumOfMonsters=parseInt(document.getElementById("monstersScale").value)
+            setValFromScale("monstersLabel", "monstersScale");
             break;
     }
 }

@@ -20,6 +20,11 @@ var ghostsArray;
 var drawGhostIndex;
 var movingFood;
 var movingFoodLocation = new Object();
+var medicine;
+var medicineLocation = new Object();
+var clock;
+var clockLocation = new Object();
+var timeReduction;
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -30,15 +35,18 @@ $(document).ready(function() {
 		}
 	  });
 	switchScreens("homeScreen")
+	switchHeaders('.navbar-container-logged-in', '.navbar-container');
 	// Start();
 	addK();
 });
 
 function Start() {
 	boardGame = new Board(20, 20)
-	board = boardGame.generateaBoard()
 	pacman = new Pacman();
 	movingFood = new MovingFood();
+	medicine = new Medicine()
+	clock = new Clock();
+	board = boardGame.generateaBoard()
 	startAgain();
 }
 
@@ -55,6 +63,7 @@ function startAgain(){
 	if(pacman == undefined){
 		pacman = new Pacman();
 	}
+	timeReduction = 0;
 	ghostsColors = ["ORANGE", "RED", "PINK", "GREEN"];
 	ghostLocation = [[1,1], [1,18], [18,1], [18,18]];
 	// ghostsColors = ghostsColors.slice(0,curNumOfMonsters);
@@ -107,7 +116,7 @@ function Draw() {
 	canvas.width = canvas.width; //clean board
 	canvas.style.border = '1px solid #000000'
 	lblScore.value = score;
-	lblTime.value = time_elapsed;
+	lblTime.value = (time_elapsed - timeReduction).toFixed(3);
 	drawGhostIndex = 0;
 	for (var i = 0; i < boardGame.colNum; i++) {
 		for (var j = 0; j < boardGame.rowNum; j++) {
@@ -151,6 +160,12 @@ function Draw() {
 			else if (board[i][j] == "MovingFood") {
 				movingFood.drawMovingFood(center);
 			}
+			else if (board[i][j] == "Medicine") {
+				medicine.drawMedicine(center);
+			}
+			else if (board[i][j] == "Clock") {
+				clock.drawClock(center);
+			}
 		}
 	}
 }
@@ -191,7 +206,12 @@ function updateMovingFoodPosition(){
 			movingFoodLocation.i++;
 		}
 	}
-	movingFood.prevCellValue = board[movingFoodLocation.i][movingFoodLocation.j];
+	if(board[movingFoodLocation.i][movingFoodLocation.j] != "Pacman"){
+		movingFood.prevCellValue = board[movingFoodLocation.i][movingFoodLocation.j];
+	}
+	else{
+		movingFood.caught = true;
+	}
 	if(!movingFood.caught){
 		board[movingFoodLocation.i][movingFoodLocation.j] = "MovingFood";
 	}
@@ -215,6 +235,9 @@ function updateGhostPosition(){
 		ghostsArray[i].rowPosition = newGhostLocation[1];
 		if(board[ghostsArray[i].colPosition][ghostsArray[i].rowPosition] == "Pacman"){
 			pacman.livesLeft--;
+			let heartImage = document.getElementById("hearts");
+			heartImage.width = pacman.livesLeft*20;
+        	heartImage.src = "Images/" + pacman.livesLeft + "hearts.png"
 			pacman.direction = "RIGHT";
 			score -= 10;
 			board[pacmanLocation.i][pacmanLocation.j] = "Empty";
@@ -276,8 +299,26 @@ function UpdatePosition() {
 		movingFood.caught = true;
 		score += 50;
 	}
+	else if (board[pacmanLocation.i][pacmanLocation.j] == "Medicine") {
+		pacman.livesLeft++;
+		let heartImage = document.getElementById("hearts");
+		heartImage.width = pacman.livesLeft*20;
+        heartImage.src = "Images/" + pacman.livesLeft + "hearts.png";
+		console.log(pacman.livesLeft);
+	}
+	else if (board[pacmanLocation.i][pacmanLocation.j] == "Clock") {
+		if(time_elapsed >= 10){
+			timeReduction += 10;
+		}
+		else{
+			timeReduction += time_elapsed;
+		}
+	}
 	if (board[pacmanLocation.i][pacmanLocation.j] == "Ghost"){
 		pacman.livesLeft--;
+		let heartImage = document.getElementById("hearts");
+		heartImage.width = pacman.livesLeft*20;
+        heartImage.src = "Images/" + pacman.livesLeft + "hearts.png"
 		score -= 10;
 		board[pacmanLocation.i][pacmanLocation.j] = "Empty";
 		console.log(pacman.livesLeft);

@@ -61,10 +61,23 @@ function successfulLogin(){
     let user = JSON.parse(localStorage.getItem(loginUsername.value));
     if(user.username === loginUsername.value && user.password === loginPassword.value){
         switchScreens("settingScreen")
+        let logoutBtn = document.getElementById("logoutBtn");
+        logoutBtn.innerText = "Welcome " + loginUsername.value;
+        switchHeaders(".navbar-container", ".navbar-container-logged-in");
         return true;
     }
     else{ 
         alert("One of the details proved was incorrect, please try again");
         return false;
     }
+}
+
+function switchHeaders(hide, show){
+    $(hide).hide();
+    $(show).show();
+}
+
+function logout(){
+    switchHeaders('.navbar-container-logged-in', '.navbar-container');
+    switchScreens("loginScreen")
 }

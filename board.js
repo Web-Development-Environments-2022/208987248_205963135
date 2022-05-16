@@ -10,11 +10,12 @@ class Board {
 
     generateaBoard(){
 	    score = 0;
-	    pac_color = "yellow";
         var food_remain = curNumOfFoodPoints;
         var pacman_remain = 1;
         start_time = new Date();
-        
+        let heartImage = document.getElementById("hearts");
+        heartImage.width = pacman.livesLeft*20;
+        heartImage.src = "Images/" + pacman.livesLeft + "hearts.png"
 	    ghostLocation = [[1,1], [1,18], [18,1], [18,18]];
         // ghostLocation = ghostLocation.slice(0, curNumOfMonsters);
         var index = 0;
@@ -72,10 +73,29 @@ class Board {
                 }
             }
         }
+        if(pacman_remain == 1){
+            let emptyPacmanCell = this.getRandomEmptyCell();
+            pacmanLocation.i = emptyPacmanCell[0];
+            pacmanLocation.j = emptyPacmanCell[1];
+            pacman_remain--;
+            this.newBoard[emptyPacmanCell[0]][emptyPacmanCell[1]] = "Pacman"; //pacman location
+        }
         while (food_remain > 0) { //adding all the food remains if left
             var emptyCell = this.getRandomEmptyCell();
             this.generateFoodType(emptyCell[0], emptyCell[1]);
             food_remain--;
+        }
+        if(medicine != undefined){ // todo maybe change to create object
+            let emptyMedicineCell = this.getRandomEmptyCell();
+            medicineLocation.i = emptyMedicineCell[0];
+            medicineLocation.j = emptyMedicineCell[1];
+            this.newBoard[emptyMedicineCell[0]][emptyMedicineCell[1]] = "Medicine"; //Medicine location
+        }
+        if(clock != undefined){ // todo maybe change to create object
+            let emptyClockCell = this.getRandomEmptyCell();
+            clockLocation.i = emptyClockCell[0];
+            clockLocation.j = emptyClockCell[1];
+            this.newBoard[emptyClockCell[0]][emptyClockCell[1]] = "Clock"; //Clock location
         }
         return this.newBoard
     }
