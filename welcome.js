@@ -1,4 +1,8 @@
 function welcome(){
     // displayScreen("registerScreen")
-    switchScreens("homeScreen")
+    switchScreens("homeScreen");
+    document.getElementById('accept').checked = false;
+    manageSound();
+
+
 }

@@ -6,6 +6,8 @@ let form = document.getElementById("form");
 function login(){
     // displayScreen("loginScreen")
     switchScreens("loginScreen")
+    document.getElementById('accept').checked = false;
+    manageSound();
 }
 
 function User(email, username, fullName, birthdate, password){
@@ -80,4 +82,6 @@ function switchHeaders(hide, show){
 function logout(){
     switchHeaders('.navbar-container-logged-in', '.navbar-container');
     switchScreens("loginScreen")
+    document.getElementById('accept').checked = false;
+    manageSound();
 }

@@ -25,6 +25,9 @@ var medicineLocation = new Object();
 var clock;
 var clockLocation = new Object();
 var timeReduction;
+var sound;
+var die;
+var eat;
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -47,6 +50,17 @@ function Start() {
 	medicine = new Medicine()
 	clock = new Clock();
 	board = boardGame.generateaBoard()
+	//background music
+	sound = document.getElementById("myAudio");
+	sound.volume = 0.2;
+	sound.currentTime = 0;
+	document.getElementById('accept').checked = true;
+	//eat&die
+	eat = document.getElementById("chomp");
+	eat.volume = 0.2;
+	die = document.getElementById("death");
+	die.volume = 0.2;
+	manageSound();
 	startAgain();
 }
 
@@ -288,16 +302,23 @@ function UpdatePosition() {
 	}
 	if (board[pacmanLocation.i][pacmanLocation.j] == "Food5") {
 		score += 5;
+		eat.play();
 	}
 	else if (board[pacmanLocation.i][pacmanLocation.j] == "Food15") {
 		score += 15;
+		eat.play();
+
 	}
 	else if (board[pacmanLocation.i][pacmanLocation.j] == "Food25") {
 		score += 25;
+		eat.play();
+
 	}
 	else if (board[pacmanLocation.i][pacmanLocation.j] == "MovingFood") {
 		movingFood.caught = true;
 		score += 50;
+		eat.play();
+
 	}
 	else if (board[pacmanLocation.i][pacmanLocation.j] == "Medicine") {
 		pacman.livesLeft++;
@@ -325,6 +346,7 @@ function UpdatePosition() {
 		window.clearInterval(interval);
 		window.clearInterval(intervalGhost);
 		window.clearInterval(intervalMovingFood);
+		die.play();
 		restartGame();
 		return;
 	}
@@ -347,6 +369,8 @@ function UpdatePosition() {
 		window.clearInterval(intervalGhost);
 		window.clearInterval(intervalMovingFood);
 		switchScreens("settingScreen");
+		document.getElementById('accept').checked = false;
+		manageSound();
 		return;
 	}
 	else if(time_elapsed > curMaxGameTime && score < 100){
@@ -359,6 +383,8 @@ function UpdatePosition() {
 		window.clearInterval(intervalGhost);
 		window.clearInterval(intervalMovingFood);
 		switchScreens("settingScreen");
+		document.getElementById('accept').checked = false;
+		manageSound();
 		return;
 	}
 	else 
@@ -372,6 +398,8 @@ function UpdatePosition() {
 		window.clearInterval(intervalGhost);
 		window.clearInterval(intervalMovingFood);
 		switchScreens("settingScreen");
+		document.getElementById('accept').checked = false;
+		manageSound();
 		return;
 	}
 	else {
@@ -421,3 +449,16 @@ function restartGhost(){
 		}
 	}
 }
+
+function manageSound()
+{
+	soundButton = document.getElementById("accept");
+	if (soundButton.checked){
+		sound.play();
+	}
+	else{
+		sound.pause();
+	}
+}
+
+

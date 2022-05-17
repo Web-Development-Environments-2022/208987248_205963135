@@ -6,6 +6,10 @@ var span = document.getElementsByClassName("close")[0];
 
 btn1.onclick = function() {
   modal.style.display = "block";
+  // document.getElementById('accept').checked = false;
+  // manageSound();
+
+
 }
 
 span.onclick = function() {

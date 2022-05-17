@@ -81,6 +81,7 @@ $(document).ready(function(){
 		}
 		,submitHandler: function(){
             switchScreens("pacmanScreen", true)
+
             // var settingScreen = document.getElementById("settingScreen");
             // settingScreen.style.left = "5%";
 			Start();

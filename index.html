@@ -75,6 +75,10 @@
 				</div> -->
 				<div id="game">
 					<canvas id="canvas" height="600" width="600"></canvas>
+					<audio id="myAudio" src="./sounds/background_music.mp3" value="play"></audio>
+					<audio id="chomp" src="./sounds/pacman_chomp.wav" value="play"></audio>
+					<audio id="death" src="./sounds/pacman_death.wav" value="play"></audio>
+
 				</div>
 				<div id="detailsScreen">
 					<form id="details" class="details-form">
@@ -92,6 +96,29 @@
 						<input id="lblTime" type="text" />
 						<br>
 						<br>
+						<b>Music Control</b>
+						<label class="switch">
+							<input id="accept" class="switch-input" type="checkbox"checked oninput="manageSound(this)" />
+							<span class="switch-label" data-on="On" data-off="Off"></span> 
+							<span class="switch-handle"></span> 
+							<!-- <input id="accept" type="checkbox" checked oninput="manageSound(this)">
+							<span class="slider round"></span> -->
+						</label>
+						<br>
+						<div>
+							<b>+10 seconds  </b>
+							<img id = "clockImage" src="Images/clock.png">
+							<br><br>
+						</div>
+						<div>
+							<b>+50 points  </b>
+							<img id = "clockImage" src="Images/food1.png">
+						</div>
+						
+
+
+
+
 
 					</form>
 				</div>
@@ -118,9 +145,8 @@
 
 			<div id="settingScreen" class="screen">
 				<form id="setting" class="settings-form">
-					<table id="keyboards-select">
+					<table id="keyboards-select" >
 						<tr class="firstRow">
-							<td></td>
 							<td>
 								<input id="Up" class="keyboardOption" type="button" value="⇧" placeholder="Enter Up key" name="Up"  onclick="changeKey('UP')" required>
 							</td>

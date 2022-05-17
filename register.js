@@ -1,6 +1,10 @@
 function register(){
     // displayScreen("registerScreen")
     switchScreens("registerScreen")
+    document.getElementById('accept').checked = false;
+    manageSound();
+
+
 }
 
 function successfulRegisteraion(){
