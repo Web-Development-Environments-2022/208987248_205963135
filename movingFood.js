@@ -1,7 +1,7 @@
 class MovingFood{
     constructor(){
         this.image = new Image();
-        this.image.src = "Images/food1.png";
+        this.image.src = "Images/money.png";
         this.prevCol = 9;
         this.prevRow = 9;
         this.prevDirection = "LEFT"
