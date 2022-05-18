@@ -426,7 +426,7 @@ footer{
 
   }
 
-.keyboardOption{
+/* .keyboardOption{
     color:  rgb(1, 9, 15);
 	background: none;
 	font-size: 2em;
@@ -444,7 +444,7 @@ footer{
     font-weight: bold;
     align-items: center;
 
-}
+} */
 
 /* .keyboardOption:hover{
     background-color: #c72323;
@@ -600,3 +600,68 @@ footer{
     height: 40px;
 }
 
+.keyboards-select-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.all-keyboards-select-container{
+    display: flex;
+    flex-direction: row;
+    gap: 7%;
+}
+
+.keyboardOption {
+	text-decoration:none;
+	font-family:Trebuchet MS;
+	box-shadow:inset #fcf5c5 0px 12px 21px 7px,#2e2b2e 12px 14px 5px;
+	o-box-shadow:inset #fcf5c5 0px 12px 21px 7px,#2e2b2e 12px 14px 5px;
+	-moz-box-shadow:inset #fcf5c5 0px 12px 21px 7px,#2e2b2e 12px 14px 5px;
+	-webkit-box-shadow:inset #fcf5c5 0px 12px 21px 7px,#2e2b2e 12px 14px 5px;
+	background:#fcfc00;
+	background:-o-linear-gradient(90deg, #fcfc00, #ebdf3d);
+	background:-moz-linear-gradient( center top, #fcfc00 5%, #ebdf3d 100% );
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fcfc00), color-stop(1, #ebdf3d) );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfc00', endColorstr='#ebdf3d');
+	background:-webkit-linear-gradient(#fcfc00, #ebdf3d);
+	background:-ms-linear-gradient(#fcfc00, #ebdf3d);
+	background:linear-gradient(#fcfc00, #ebdf3d);
+	text-indent:0px;
+	line-height:30px;
+	-moz-border-radius:25px;
+	-webkit-border-radius:25px;
+	border-radius:25px;
+	text-align:center;
+	vertical-align:middle;
+	display:inline-block;
+	font-size:20px;
+	color:#000000;
+	width:60px;
+	height:40px;
+	padding:13px;
+	text-shadow:#fff700 2px 2px 0px;
+	border-color:#ffff00;
+	border-width:2px;
+	border-style:solid;
+}
+
+.keyboardOption:active {
+	box-shadow:inset #fcf5c5 0px 12px 21px 7px,#2e2b2e 12px 0 5px;
+	o-box-shadow:inset #fcf5c5 0px 12px 21px 7px,#2e2b2e 12px 0 5px;
+	-moz-box-shadow:inset #fcf5c5 0px 12px 21px 7px,#2e2b2e 12px 0 5px;
+	-webkit-box-shadow:inset #fcf5c5 0px 12px 21px 7px,#2e2b2e 12px 0 5px;
+	position:relative;
+	top:14px
+}
+
+.keyboardOption:hover {
+	background:#ebdf3d;
+	background:-o-linear-gradient(90deg, #ebdf3d, #fcfc00);
+	background:-moz-linear-gradient( center top, #ebdf3d 5%, #fcfc00 100% );
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ebdf3d), color-stop(1, #fcfc00) );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ebdf3d', endColorstr='#fcfc00');
+	background:-webkit-linear-gradient(#ebdf3d, #fcfc00);
+	background:-ms-linear-gradient(#ebdf3d, #fcfc00);
+	background:linear-gradient(#ebdf3d, #fcfc00);
+}

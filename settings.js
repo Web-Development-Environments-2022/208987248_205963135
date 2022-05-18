@@ -164,7 +164,9 @@ function changeSettings(setting){
 //TODO maybe change the labels
 function setValFromScale(label, scale){
     scaleValue = document.getElementById(scale).value
-    document.getElementById(label).innerHTML = scaleValue
+    $('#'+ label).text(scaleValue);
+    $("#" + label).css("color", "white");
+    $("#" + label).css('font-weight', 'bold');
 }
 
 function getRandomColor() {

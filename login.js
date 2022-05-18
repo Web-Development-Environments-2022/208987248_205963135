@@ -87,4 +87,5 @@ function logout(){
     switchScreens("loginScreen")
     document.getElementById('accept').checked = false;
     manageSound();
+    stopGame();
 }
