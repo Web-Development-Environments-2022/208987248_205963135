@@ -1,15 +1,21 @@
 var modal = document.getElementById("myModal");
 
-var btn1 = document.getElementById("myBtn");
+var btnLogout = document.getElementById("myBtnLogout");
+
+var btnLogin = document.getElementById("myBtnLogin");
 
 var span = document.getElementsByClassName("close")[0];
 
-btn1.onclick = function() {
+btnLogout.onclick = function() {
   modal.style.display = "block";
   // document.getElementById('accept').checked = false;
   // manageSound();
+}
 
-
+btnLogin.onclick = function() {
+  modal.style.display = "block";
+  // document.getElementById('accept').checked = false;
+  // manageSound();
 }
 
 span.onclick = function() {

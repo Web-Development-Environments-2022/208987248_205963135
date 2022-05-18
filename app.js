@@ -39,10 +39,8 @@ $(document).ready(function() {
 	  });
 	switchScreens("homeScreen")
 	switchHeaders('.navbar-container-logged-in', '.navbar-container');
-	// Start();
 	addK();
-	// let maorDana = document.getElementById("maorDana");
-	// maorDana.src
+	sound = document.getElementById("myAudio");
 });
 
 function Start() {
@@ -53,7 +51,9 @@ function Start() {
 	clock = new Clock();
 	board = boardGame.generateaBoard()
 	//background music
-	sound = document.getElementById("myAudio");
+	if(sound == undefined){
+		sound = document.getElementById("myAudio");
+	}
 	sound.volume = 0.2;
 	sound.currentTime = 0;
 	document.getElementById('accept').checked = true;
@@ -111,6 +111,18 @@ function startAgain(){
 	intervalGhost = setInterval(updateGhostPosition, 375);
 	intervalMovingFood = setInterval(updateMovingFoodPosition, 250);
 	interval = setInterval(UpdatePosition, 125);
+}
+
+function stopGame(){
+	if(interval != undefined){
+		window.clearInterval(interval);
+	}
+	if(intervalGhost != undefined){
+		window.clearInterval(intervalGhost);
+	}
+	if(intervalMovingFood != undefined){
+		window.clearInterval(intervalMovingFood);
+	}
 }
 
 function GetKeyPressed() {
@@ -251,6 +263,7 @@ function updateGhostPosition(){
 		ghostsArray[i].rowPosition = newGhostLocation[1];
 		if(board[ghostsArray[i].colPosition][ghostsArray[i].rowPosition] == "Pacman"){
 			pacman.livesLeft--;
+			die.play();
 			let heartImage = document.getElementById("hearts");
 			heartImage.width = pacman.livesLeft*20;
         	heartImage.src = "Images/" + pacman.livesLeft + "hearts.png"

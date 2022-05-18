@@ -11,7 +11,7 @@
 					<button type="button" class="btn btn-primary navbar-button" onclick="welcome()">Welcome</button>
 				</a>
 				<a href="#about">
-					<button type="button" id="myBtn" class="btn btn-primary navbar-button">About</button>
+					<button type="button" id="myBtnLogout" class="btn btn-primary navbar-button">About</button>
 				</a>
 			</div>
 			<header class="pacman-container">
@@ -34,7 +34,7 @@
 					<button type="button" class="btn btn-primary navbar-button" onclick="welcome()">Welcome</button>
 				</a>
 				<a href="#about">
-					<button type="button" id="myBtn" class="btn btn-primary navbar-button">About</button>
+					<button type="button" id="myBtnLogin" class="btn btn-primary navbar-button">About</button>
 				</a>
 			</div>
 			<header class="pacman-container">
@@ -64,7 +64,6 @@
 					<a href="#login">
 					<!-- <button class="text" onclick="login()">Login</button> -->
 					<button type="button" class="text btn btn-primary navbar-button" onclick="login()">Login</button>
-
 					</a>
 				</div>
 			</div>
@@ -118,11 +117,6 @@
 							<b>+50 points  </b>
 							<img id = "clockImage" src="Images/food1.png">
 						</div>
-						
-
-
-
-
 
 					</form>
 				</div>
@@ -168,17 +162,23 @@
 							</td>
 						</tr>
 					</table> -->
-					<div id="keyboards-select-text">
-						<b>Up</b>
-						<b>Left</b>
-						<b>Right</b>
-						<b>Down</b>
-					</div>
-					<div id="keyboards-select">
+					<div class="all-keyboards-select-container">
+						<div class="keyboards-select-container">
+							<b>Up</b>
 							<input id="Up" class="keyboardOption" type="button" value="⇧" placeholder="Enter Up key" name="Up"  onclick="changeKey('UP')" required>
+						</div>
+						<div class="keyboards-select-container">
+							<b>Left</b>
 							<input id="Left" class="keyboardOption" type="button" value="⇦" placeholder="Enter Left key" name="Left" onclick="changeKey('LEFT')" required>
+						</div>
+						<div class="keyboards-select-container">
+							<b>Right</b>
 							<input id="Right" class="keyboardOption" type="button" value="➪" placeholder="Enter Right key" name="Right" onclick="changeKey('RIGHT')" required>
+						</div>
+						<div class="keyboards-select-container">
+							<b>Down</b>
 							<input id="Down" class="keyboardOption" type="button" value="⇩" placeholder="Enter Down key" name="Down" onclick="changeKey( 'DOWN')" required>
+						</div>
 					</div>
 					<!-- Change this! -->
 					<label><b>Number of Food points:</b></label>
@@ -203,13 +203,17 @@
 					<br>
 					<label><b> Select the time duration the game: </b></label>
 					<br>
+					<label><b class="scaleValue">60</b></label>
 					<input class="scale" type="range" id="gameTimeScale" name="gameTimeScale" min="60" value="60" max="360" step="1" onchange="setValFromScale('gameTimeLabel','gameTimeScale'); changeSettings('TIME');" required>
+					<label><b class="scaleValue">360</b></label>
 					<br>
 					<label id="gameTimeLabel"><b class="scaleValue">60</b></label>
 					<br>
 					<label><b> Select number of ghosts: </b></label>
 					<br>
+					<label><b class="scaleValue">1</b></label>
 					<input class="scale" type="range" id="monstersScale" name="monstersScale" min="1" value="2" max="4" step="1" onchange="setValFromScale('monstersLabel','monstersScale'); changeSettings('MONSTERS');" required>
+					<label><b class="scaleValue">4</b></label>
 					<br>
 					<label id="monstersLabel" ><b class="scaleValue">2</b></label>
 					<br><br>
