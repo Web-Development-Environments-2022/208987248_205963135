@@ -41,6 +41,8 @@ $(document).ready(function() {
 	switchHeaders('.navbar-container-logged-in', '.navbar-container');
 	// Start();
 	addK();
+	// let maorDana = document.getElementById("maorDana");
+	// maorDana.src
 });
 
 function Start() {
