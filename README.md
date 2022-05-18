@@ -42,7 +42,7 @@ also add our own design and images.
 The following special features have been added:
 
 - **Clock** - you will get 10 secondes extra when you eat the clock. 
-<img width="200" height="200" alt="image" src="[https://user-images.githubusercontent.com/81363383/169156706-a2d3bf81-71a2-41af-a5ad-ec0659142f30.png](https://user-images.githubusercontent.com/81363383/169156388-9172a889-d51d-401e-9269-3c3ae8dd6099.png)">
+<img width="200" height="200" alt="image" src="./Images/clock.png">
 
 - **Yellow heart** - you will get an extra live when you eat the heart.
 ![1hearts](https://user-images.githubusercontent.com/81363383/169156428-76ead34c-4e22-4866-ae4a-2b6d22573a15.png)
