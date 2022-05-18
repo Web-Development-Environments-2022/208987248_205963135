@@ -81,9 +81,6 @@ $(document).ready(function(){
 		}
 		,submitHandler: function(){
             switchScreens("pacmanScreen", true)
-
-            // var settingScreen = document.getElementById("settingScreen");
-            // settingScreen.style.left = "5%";
 			Start();
 		}
 	});
@@ -169,7 +166,6 @@ function changeSettings(setting){
 }
 
 
-//TODO maybe change the labels
 function setValFromScale(label, scale){
     scaleValue = document.getElementById(scale).value
     $('#'+ label).text(scaleValue);

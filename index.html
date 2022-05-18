@@ -42,9 +42,6 @@
 				<span class="ourNames"> Maor Biton Dor & Dana Hohenstein</span>
 			</header>
 			<div class="right-buttons-container-logged-in">
-				<!-- <a href="#logout">
-					<button id="logoutBtn" type="button"  class="btn btn-primary navbar-button">logout</button>
-				</a> -->
 				<a href="#welcome">
 					<button type="button" class="btn btn-primary navbar-button" onclick="welcome()">Welcome</button>
 				</a>
@@ -59,24 +56,14 @@
 				<div class="tenor-gif-embed" data-postid="12836291" data-share-method="host" data-aspect-ratio="1.77778" data-width="35%"><a href="https://tenor.com/view/old-school-video-games-pac-man-gif-12836291">Old School Video Games GIF</a>from <a href="https://tenor.com/search/old+school-gifs">Old School GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 				<div class="main-buttons-contaner">
 					<a href="#register">
-					<!-- <button type="button" class="text btn btn-primary navbar-button" onclick="register()">Register</button> -->
 					<button class="button-31" onclick="register()" role="button">Register</button>
 					</a>
 					<a href="#login">
-					<!-- <button type="button" class="text btn btn-primary navbar-button" onclick="login()">Login</button> -->
 					<button class="button-31" onclick="login()" role="button">Login</button>
 					</a>
 				</div>
 			</div>
 			<div id="pacmanScreen" class="screen">
-				<!-- <div id="score">
-					<label for="lblScore">SCORE:</label>
-					<input id="lblScore" type="text" />
-				</div>
-				<div id="time">
-					<label for="lblTime">TIME:</label>
-					<input id="lblTime" type="text" />
-				</div> -->
 				<div id="game">
 					<canvas id="canvas" height="600" width="600"></canvas>
 					<audio id="myAudio" src="./sounds/background_music.mp3" value="play"></audio>
@@ -105,8 +92,6 @@
 							<input id="accept" class="switch-input" type="checkbox"checked oninput="manageSound(this)" />
 							<span class="switch-label" data-on="On" data-off="Off"></span> 
 							<span class="switch-handle"></span> 
-							<!-- <input id="accept" type="checkbox" checked oninput="manageSound(this)">
-							<span class="slider round"></span> -->
 						</label>
 						<br>
 						<div>
@@ -150,25 +135,6 @@
 
 			<div id="settingScreen" class="screen">
 				<form id="setting" class="settings-form">
-					<!-- <table id="keyboards-select" >
-						<tr class="firstRow">
-							<td>
-								<input id="Up" class="keyboardOption" type="button" value="⇧" placeholder="Enter Up key" name="Up"  onclick="changeKey('UP')" required>
-							</td>
-							<td></td>
-						</tr>
-						<tr class="secondRow">
-							<td>
-								<input id="Left" class="keyboardOption" type="button" value="⇦" placeholder="Enter Left key" name="Left" onclick="changeKey('LEFT')" required>
-							</td>
-							<td>
-								<input id="Down" class="keyboardOption" type="button" value="⇩" placeholder="Enter Down key" name="Down" onclick="changeKey( 'DOWN')" required>
-							</td>
-							<td>
-								<input id="Right" class="keyboardOption" type="button" value="➪" placeholder="Enter Right key" name="Right" onclick="changeKey('RIGHT')" required>
-							</td>
-						</tr>
-					</table> -->
 					<div class="all-keyboards-select-container">
 						<div class="keyboards-select-container">
 							<b>Up</b>
@@ -187,7 +153,6 @@
 							<input id="Down" class="keyboardOption" type="button" value="⇩" placeholder="Enter Down key" name="Down" onclick="changeKey( 'DOWN')" required>
 						</div>
 					</div>
-					<!-- Change this! -->
 					<br>
 					<label><p>Number of Food points:</p></label>
 					<br>
@@ -230,21 +195,6 @@
 					<button id="RandomSettingsBtn" type="button" class="submit-btn" onclick="randomSettings()">Random Settings</button>
 				</form>
 			</div>
-
-
-			<!-- <div id="pacmanScreen" class="screen">
-				<div id="score">
-					<label for="lblScore">SCORE:</label>
-					<input id="lblScore" type="text" />
-				</div>
-				<div id="time">
-					<label for="lblTime">TIME:</label>
-					<input id="lblTime" type="text" />
-				</div>
-				<div id="game">
-					<canvas id="canvas" height="1200" width="1200"></canvas>
-				</div>
-			</div> -->
 		</div>
 	
 		<div id="footer">
@@ -277,7 +227,6 @@
 					Hope you enjoy!
 					
 				</div>
-				<!-- <p id="aboutModalText">This Game was made by Maor Biton Dor and Dana Hohenstein</p> -->
 				<img id="maorDana" src="./Images/maorDana.JPG" >
 			</div>
 

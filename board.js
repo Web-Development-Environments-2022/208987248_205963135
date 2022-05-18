@@ -17,7 +17,6 @@ class Board {
         heartImage.width = pacman.livesLeft*20;
         heartImage.src = "Images/" + pacman.livesLeft + "hearts.png"
 	    ghostLocation = [[1,1], [1,18], [18,1], [18,18]];
-        // ghostLocation = ghostLocation.slice(0, curNumOfMonsters);
         var index = 0;
         for (var i = 0; i < this.colNum; i++) {
             this.newBoard[i] = new Array();
@@ -94,13 +93,13 @@ class Board {
             this.generateFoodType(emptyCell[0], emptyCell[1]);
             food_remain--;
         }
-        if(medicine != undefined){ // todo maybe change to create object
+        if(medicine != undefined){ 
             let emptyMedicineCell = this.getRandomEmptyCell();
             medicineLocation.i = emptyMedicineCell[0];
             medicineLocation.j = emptyMedicineCell[1];
             this.newBoard[emptyMedicineCell[0]][emptyMedicineCell[1]] = "Medicine"; //Medicine location
         }
-        if(clock != undefined){ // todo maybe change to create object
+        if(clock != undefined){ 
             let emptyClockCell = this.getRandomEmptyCell();
             clockLocation.i = emptyClockCell[0];
             clockLocation.j = emptyClockCell[1];

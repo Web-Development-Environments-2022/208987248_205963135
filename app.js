@@ -84,12 +84,9 @@ function startAgain(){
 	timeReduction = 0;
 	ghostsColors = ["ORANGE", "RED", "PINK", "GREEN"];
 	ghostLocation = [[1,1], [1,18], [18,1], [18,18]];
-	// ghostsColors = ghostsColors.slice(0,curNumOfMonsters);
 	ghostsArray = new Array();
 	for(let i=0;i<curNumOfMonsters;i++){
 		ghostsArray.push(new Ghost(ghostsColors[i], ghostLocation[i][0], ghostLocation[i][1]));
-		// console.log(ghostsArray[i]);
-		// console.log(pacman);
 	}
 	curColor5 = newColor5;
 	curColor15 = newColor15;
@@ -248,7 +245,6 @@ function updateMovingFoodPosition(){
 	if(!movingFood.caught){
 		board[movingFoodLocation.i][movingFoodLocation.j] = "MovingFood";
 	}
-	// movingFood.drawMovingFood(movingFoodLocation);
 }
 
 
@@ -262,7 +258,6 @@ function updateGhostPosition(){
 			ghostsArray[i].direction = "RIGHT";
 		}
 		board[ghostsArray[i].colPosition][ghostsArray[i].rowPosition] = ghostsArray[i].prevCellValue;
-		// console.log(newGhostLocation);
 		ghostsArray[i].prevCellValue = board[newGhostLocation[0]][newGhostLocation[1]];
 		ghostsArray[i].colPosition = newGhostLocation[0];
 		ghostsArray[i].rowPosition = newGhostLocation[1];
@@ -286,7 +281,6 @@ function updateGhostPosition(){
 		let centerGhost = new Object();
 		centerGhost.x = ghostsArray[i].colPosition * 30 + 15;
 		centerGhost.y = ghostsArray[i].rowPosition * 30 + 15;
-		// ghostsArray[i].drawGhost(centerGhost);
 	}
 }
 
@@ -378,12 +372,7 @@ function UpdatePosition() {
 	}
 	var currentTime = new Date();
 	time_elapsed = curMaxGameTime - (currentTime - start_time) / 1000;
-	// if (score >= 20 && time_elapsed <= 10) {
-	// 	pac_color = "green";
-	// }
-	// TODO change the alert window in game over modal
-	if (time_elapsed <= 0 && score >= 100) { //todo change to num of total points
-		// window.clearInterval(interval);
+	if (time_elapsed <= 0 && score >= 100) { 
 		window.alert("Winner");
 		time_elapsed = 0;
 		score = 0;
@@ -397,7 +386,6 @@ function UpdatePosition() {
 		return;
 	}
 	else if(time_elapsed <= 0 && score < 100){
-		// window.clearInterval(interval);
 		window.alert("You are better than " + score + " points!");
 		time_elapsed = 0;
 		score = 0;
@@ -412,7 +400,6 @@ function UpdatePosition() {
 	}
 	else 
 	if(pacman.livesLeft == 0){
-		// window.clearInterval(interval);
 		time_elapsed = 0;
 		score = 0;
 		pacman.livesLeft = 5;
@@ -440,9 +427,6 @@ function UpdatePosition() {
 }
 
 function switchScreens(screenId, settingScreen=false){
-    // if (pacman != undefined){
-    //     resetGame();
-    // }
     hideScreens();
     $('#'+screenId).show();
     $('#'+screenId).focus();
@@ -467,7 +451,6 @@ function restartGame(){
 
 function restartGhost(){
 	ghostLocation = [[1,1], [1,18], [18,1], [18,18]];
-	// ghostLocation = ghostLocation.slice(0, curNumOfMonsters);
 	var index = 0;
 	for (var i = 0; i < boardGame.colNum; i++) {
 		for (var j = 0; j < boardGame.rowNum; j++) {

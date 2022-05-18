@@ -1,7 +1,6 @@
 class Pacman{
     constructor(){
         this.livesLeft = 5;
-        // this.interval = setInterval(UpdatePosition, 125);
         this.imgUp = new Image();
         this.imgUp.src = "Images/pacman_up.png";
         this.imgDown = new Image();
