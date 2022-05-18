@@ -275,7 +275,7 @@ function updateGhostPosition(){
 			pacman.direction = "RIGHT";
 			score -= 10;
 			board[pacmanLocation.i][pacmanLocation.j] = "Empty";
-			console.log(pacman.livesLeft);
+			// console.log(pacman.livesLeft);
 			window.clearInterval(interval);
 			window.clearInterval(intervalGhost);
 			window.clearInterval(intervalMovingFood);
@@ -365,7 +365,7 @@ function UpdatePosition() {
         heartImage.src = "Images/" + pacman.livesLeft + "hearts.png"
 		score -= 10;
 		board[pacmanLocation.i][pacmanLocation.j] = "Empty";
-		console.log(pacman.livesLeft);
+		// console.log(pacman.livesLeft);
 		window.clearInterval(interval);
 		window.clearInterval(intervalGhost);
 		window.clearInterval(intervalMovingFood);
