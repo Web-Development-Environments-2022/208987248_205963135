@@ -7,18 +7,6 @@
 	<body>
 		<div class="navbar-container">
 			<div class="left-buttons-container">
-				<a href="#welcome">
-					<button type="button" class="btn btn-primary navbar-button" onclick="welcome()">Welcome</button>
-				</a>
-				<a href="#about">
-					<button type="button" id="myBtnLogout" class="btn btn-primary navbar-button">About</button>
-				</a>
-			</div>
-			<header class="pacman-container">
-				<img src="Images/3.png" class="logo">
-				<span class="ourNames"> Maor Biton Dor & Dana Hohenstein</span>
-			</header>
-			<div class="right-buttons-container">
 				<a href="#register">
 					<button type="button" onclick="register()" class="btn btn-primary navbar-button">Register</button>
 				</a>
@@ -26,16 +14,28 @@
 					<button type="button" onclick="login()" class="btn btn-primary navbar-button">Login</button>
 				</a>
 			</div>
-		</div>
-
-		<div class="navbar-container-logged-in">
-			<div class="left-buttons-container">
+			<header class="pacman-container">
+				<img src="Images/3.png" class="logo">
+				<span class="ourNames"> Maor Biton Dor & Dana Hohenstein</span>
+			</header>
+			<div class="right-buttons-container">
 				<a href="#welcome">
 					<button type="button" class="btn btn-primary navbar-button" onclick="welcome()">Welcome</button>
 				</a>
 				<a href="#about">
-					<button type="button" id="myBtnLogin" class="btn btn-primary navbar-button">About</button>
+					<button type="button" id="myBtnLogout" class="btn btn-primary navbar-button">About</button>
 				</a>
+
+			</div>
+		</div>
+
+		<div class="navbar-container-logged-in">
+			<div class="left-buttons-container">
+				<p id="user"> </p>
+				<a href="#exit">
+					<button id="logoutBtn" type="button" onclick="logout()" class="btn btn-primary navbar-button">Logout</button>
+				</a>
+
 			</div>
 			<header class="pacman-container">
 				<img src="Images/3.png" class="logo">
@@ -45,25 +45,26 @@
 				<!-- <a href="#logout">
 					<button id="logoutBtn" type="button"  class="btn btn-primary navbar-button">logout</button>
 				</a> -->
-				<p id="user"> </p>
-				<a href="#exit">
-					<button id="logoutBtn" type="button" onclick="logout()" class="btn btn-primary navbar-button">Logout</button>
+				<a href="#welcome">
+					<button type="button" class="btn btn-primary navbar-button" onclick="welcome()">Welcome</button>
+				</a>
+				<a href="#about">
+					<button type="button" id="myBtnLogin" class="btn btn-primary navbar-button">About</button>
 				</a>
 			</div>
 		</div>
 
 		<div id="content" class="container-all">
 			<div id="homeScreen" class="screen main-gif-container">
-				<div class="tenor-gif-embed" data-postid="12836291" data-share-method="host" data-aspect-ratio="1.77778" data-width="25%"><a href="https://tenor.com/view/old-school-video-games-pac-man-gif-12836291">Old School Video Games GIF</a>from <a href="https://tenor.com/search/old+school-gifs">Old School GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+				<div class="tenor-gif-embed" data-postid="12836291" data-share-method="host" data-aspect-ratio="1.77778" data-width="35%"><a href="https://tenor.com/view/old-school-video-games-pac-man-gif-12836291">Old School Video Games GIF</a>from <a href="https://tenor.com/search/old+school-gifs">Old School GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 				<div class="main-buttons-contaner">
 					<a href="#register">
-					<!-- <button class="text" onclick="register()">Register</button> -->
-					<button type="button" class="text btn btn-primary navbar-button" onclick="register()">Register</button>
-
+					<!-- <button type="button" class="text btn btn-primary navbar-button" onclick="register()">Register</button> -->
+					<button class="button-31" onclick="register()" role="button">Register</button>
 					</a>
 					<a href="#login">
-					<!-- <button class="text" onclick="login()">Login</button> -->
-					<button type="button" class="text btn btn-primary navbar-button" onclick="login()">Login</button>
+					<!-- <button type="button" class="text btn btn-primary navbar-button" onclick="login()">Login</button> -->
+					<button class="button-31" onclick="register()" onclick="login()" role="button">Login</button>
 					</a>
 				</div>
 			</div>
@@ -85,21 +86,21 @@
 				</div>
 				<div id="detailsScreen">
 					<form id="details" class="details-form">
-						<label><b>Number of lives:</b></label>
+						<label><p>Number of lives:</p></label>
 						<img id="hearts" src="" alt="hearts" height="20px">
 						<br>
 						<br>
 
-						<label for="lblScore"><b>SCORE</b>:</label>
+						<label for="lblScore"><p>SCORE:</p></label>
 						<input id="lblScore" type="text" />
 						<br>
 						<br>
 
-						<label for="lblTime"><b>TIME</b>:</label>
+						<label for="lblTime"><p>TIME:</p></label>
 						<input id="lblTime" type="text" />
 						<br>
 						<br>
-						<b>Music Control</b>
+						<b>Music Control    </b>
 						<label class="switch">
 							<input id="accept" class="switch-input" type="checkbox"checked oninput="manageSound(this)" />
 							<span class="switch-label" data-on="On" data-off="Off"></span> 
@@ -109,6 +110,7 @@
 						</label>
 						<br>
 						<div>
+							<br>
 							<b>+10 seconds  </b>
 							<img id = "clockImage" src="Images/clock.png">
 							<br><br>
@@ -181,35 +183,36 @@
 						</div>
 					</div>
 					<!-- Change this! -->
-					<label><b>Number of Food points:</b></label>
 					<br>
-					<label><b>50</b></label>
+					<label><p>Number of Food points:</p></label>
+					<br>
+					<label><p>50</p></label>
 					<input class="scale" type="range" id="foodPointsScale" name="foodPointsScale" min="50" value="50" max="90" step="1" onchange="setValFromScale('foodPointsLabel','foodPointsScale'); changeSettings('FOOD');" required>
-					<label><b>90</b></label>
+					<label><p>90</p></label>
 					<br>
-					<label id="foodPointsLabel" ><b class="scaleValue">50</b></label>
+					<label id="foodPointsLabel" ><p>50</p></label>
 					<br><br>
-					<label><b>Select colors of food points: </b></label>
+					<label><p>Select colors of food points:</p> </label>
 					<br><br>
-					<label><b>Color for 5 points ball:</b>  </label>
+					<label><p>Color for 5 points ball:</p> </label>
 					<input class="color-set" type="color" id="5PointColor" value="#f6355c" name="pointsColor5" onchange="changeSettings('COLOR5')" required>
 					<br>
-					<label><b>Color for 15 points ball:</b>  </label>
+					<label><p>Color for 15 points ball:</p>  </label>
 					<input class="color-set" type="color" id="15PointColor" value="#e3a221" name="pointsColor15" onchange="changeSettings('COLOR15')" required>
 					<br>
-					<label> <b>Color for 25 points ball:</b> </label>
+					<label> <p>Color for 25 points ball:</p> </label>
 					<input class="color-set" type="color" id="25PointColor" value="#316600" name="pointsColor25" onchange="changeSettings('COLOR25')" required>
 					<br>
 					<br>
-					<label><b> Select the time duration the game: </b></label>
+					<label><p>Select the time duration the game:</p> </label>
 					<br>
-					<label><b class="scaleValue">60</b></label>
+					<label><p>60</p></label>
 					<input class="scale" type="range" id="gameTimeScale" name="gameTimeScale" min="60" value="60" max="360" step="1" onchange="setValFromScale('gameTimeLabel','gameTimeScale'); changeSettings('TIME');" required>
-					<label><b class="scaleValue">360</b></label>
+					<label><b class="scaleValue"><p>360</p></b></label>
 					<br>
-					<label id="gameTimeLabel"><b class="scaleValue">60</b></label>
+					<label id="gameTimeLabel"><p>60</p></label>
 					<br>
-					<label><b> Select number of ghosts: </b></label>
+					<label><p>Select number of ghosts:</p> </label>
 					<br>
 					<label><b class="scaleValue">1</b></label>
 					<input class="scale" type="range" id="monstersScale" name="monstersScale" min="1" value="2" max="4" step="1" onchange="setValFromScale('monstersLabel','monstersScale'); changeSettings('MONSTERS');" required>

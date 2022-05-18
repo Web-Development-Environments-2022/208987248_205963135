@@ -6,6 +6,8 @@ body {
     margin: 0;
     /* background-color: #f5ebd4 !important; */
     background-image: url("/images/back2.jpg")!important;
+    font-family: 'Comic Sans MS' !important;
+
     /* overflow: hidden; */
 }
 
@@ -119,7 +121,8 @@ body {
 .main-buttons-contaner {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 100px;
+    margin-right: 50px;
 
 
 }
@@ -246,7 +249,6 @@ body {
 }
 p{
     color: #fefefe;
-    font-weight: bold
 }
 
 
@@ -296,7 +298,7 @@ p{
     color: #aaa;
     float: right;
     font-size: 28px;
-    font-weight: bold;
+    /* font-weight: bold; */
   }
   
   .close:hover,
@@ -332,7 +334,7 @@ p{
     top: 25%;
     left: 40%; */
     /* height: inherit; */
-    height: 800px;
+    height: 900px;
     /* position: absolute;
     margin-left: 1000px; */
     margin-right: 50px;
@@ -343,7 +345,7 @@ p{
 
 .settings-form{
     width: 350px;
-    height: 700px;
+    height: 850px;
     /* background-color: #9b9b9b; */
     background-color: #2e2d2d;
     border-radius: 10px;
@@ -375,13 +377,16 @@ b
     left: 71%; */
     /* height: inherit;
     margin-top: 200px; */
+    align-items: center;
+    text-align: center;    
+
 
 
 }
 
 .details-form{
     width: 350px;
-    height: 400px;
+    height: 450px;
     background-color: #2e2d2d;
     border-radius: 10px;
     vertical-align: top;
@@ -493,7 +498,7 @@ footer{
 
   .switch {
 	position: relative;
-	display: block;
+	/* display: block; */
 	vertical-align: top;
 	width: 100px;
 	height: 30px;
@@ -656,8 +661,8 @@ footer{
 
 }
 #maorDana{
-    width: 15%;
-    height: 15%;
+    width: 17%;
+    height: 17%;
     margin-left: auto;
     margin-right: 100px;
 }
@@ -666,3 +671,37 @@ footer{
     flex-direction: row;
 	padding: 5px;
 }
+.button-31 {
+    background-color: #222;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 150%;
+    height: 100%;
+  }
+  
+  .button-31:hover,
+  .button-31:focus {
+    opacity: .75;
+  }
+  
