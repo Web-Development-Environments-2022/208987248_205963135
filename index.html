@@ -42,8 +42,12 @@
 				<span class="ourNames"> Maor Biton Dor & Dana Hohenstein</span>
 			</header>
 			<div class="right-buttons-container-logged-in">
-				<a href="#logout">
-					<button id="logoutBtn" type="button" onclick="logout()" class="btn btn-primary navbar-button">logout</button>
+				<!-- <a href="#logout">
+					<button id="logoutBtn" type="button"  class="btn btn-primary navbar-button">logout</button>
+				</a> -->
+				<p id="user"> </p>
+				<a href="#exit">
+					<button id="logoutBtn" type="button" onclick="logout()" class="btn btn-primary navbar-button">Logout</button>
 				</a>
 			</div>
 		</div>
@@ -145,7 +149,7 @@
 
 			<div id="settingScreen" class="screen">
 				<form id="setting" class="settings-form">
-					<table id="keyboards-select" >
+					<!-- <table id="keyboards-select" >
 						<tr class="firstRow">
 							<td>
 								<input id="Up" class="keyboardOption" type="button" value="⇧" placeholder="Enter Up key" name="Up"  onclick="changeKey('UP')" required>
@@ -163,21 +167,19 @@
 								<input id="Right" class="keyboardOption" type="button" value="➪" placeholder="Enter Right key" name="Right" onclick="changeKey('RIGHT')" required>
 							</td>
 						</tr>
-					</table>
-					<!-- <ul id="keyboards-select">
-						<li>
+					</table> -->
+					<div id="keyboards-select-text">
+						<b>Up</b>
+						<b>Left</b>
+						<b>Right</b>
+						<b>Down</b>
+					</div>
+					<div id="keyboards-select">
 							<input id="Up" class="keyboardOption" type="button" value="⇧" placeholder="Enter Up key" name="Up"  onclick="changeKey('UP')" required>
-						</li>
-						<li>
 							<input id="Left" class="keyboardOption" type="button" value="⇦" placeholder="Enter Left key" name="Left" onclick="changeKey('LEFT')" required>
-						</li>								
-						<li>
 							<input id="Right" class="keyboardOption" type="button" value="➪" placeholder="Enter Right key" name="Right" onclick="changeKey('RIGHT')" required>
-						</li>
-						<li>
 							<input id="Down" class="keyboardOption" type="button" value="⇩" placeholder="Enter Down key" name="Down" onclick="changeKey( 'DOWN')" required>
-						</li>
-					</ul> -->
+					</div>
 					<!-- Change this! -->
 					<label><b>Number of Food points:</b></label>
 					<br>
@@ -186,16 +188,16 @@
 					<label><b>90</b></label>
 					<br>
 					<label id="foodPointsLabel" ><b class="scaleValue">50</b></label>
-					<br>
+					<br><br>
 					<label><b>Select colors of food points: </b></label>
-					<br>
-					<label><b>Select color for 5 points ball:</b>  </label>
+					<br><br>
+					<label><b>Color for 5 points ball:</b>  </label>
 					<input class="color-set" type="color" id="5PointColor" value="#f6355c" name="pointsColor5" onchange="changeSettings('COLOR5')" required>
 					<br>
-					<label><b>Select color for 15 points ball:</b>  </label>
+					<label><b>Color for 15 points ball:</b>  </label>
 					<input class="color-set" type="color" id="15PointColor" value="#e3a221" name="pointsColor15" onchange="changeSettings('COLOR15')" required>
 					<br>
-					<label> <b>Select color for 25 points ball:</b> </label>
+					<label> <b>Color for 25 points ball:</b> </label>
 					<input class="color-set" type="color" id="25PointColor" value="#316600" name="pointsColor25" onchange="changeSettings('COLOR25')" required>
 					<br>
 					<br>
@@ -210,7 +212,9 @@
 					<input class="scale" type="range" id="monstersScale" name="monstersScale" min="1" value="2" max="4" step="1" onchange="setValFromScale('monstersLabel','monstersScale'); changeSettings('MONSTERS');" required>
 					<br>
 					<label id="monstersLabel" ><b class="scaleValue">2</b></label>
+					<br><br>
 					<button id="submitSettingsBtn" type="submit" class="submit-btn">Start Game</button>
+					<br>
 					<button id="RandomSettingsBtn" type="button" class="submit-btn" onclick="randomSettings()">Random Settings</button>
 				</form>
 			</div>

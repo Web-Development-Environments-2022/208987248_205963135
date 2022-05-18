@@ -63,8 +63,11 @@ function successfulLogin(){
     let user = JSON.parse(localStorage.getItem(loginUsername.value));
     if(user.username === loginUsername.value && user.password === loginPassword.value){
         switchScreens("settingScreen")
-        let logoutBtn = document.getElementById("logoutBtn");
-        logoutBtn.innerText = "Welcome " + loginUsername.value;
+        // let logoutBtn = document.getElementById("logoutBtn");
+        // logoutBtn.innerText = "Welcome " + loginUsername.value;
+        // const text = document.createTextNode(loginUsername.value);
+        let user = document.getElementById("user");
+        user.textContent ="Welcome " + loginUsername.value;
         switchHeaders(".navbar-container", ".navbar-container-logged-in");
         return true;
     }
