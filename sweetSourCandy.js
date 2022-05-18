@@ -1,7 +1,7 @@
 class SweetSourCandy{
     constructor(){
         this.image = new Image();
-        this.image.src = "Images/food1.png";
+        this.image.src = "Images/candy.png";
         this.score = 0;
     }
 
