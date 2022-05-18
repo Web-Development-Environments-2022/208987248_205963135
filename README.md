@@ -8,7 +8,7 @@ Maor Biton Dor: 205963135
 
 Dana Hohenstein: 208987248
 
-Website URL: https://web-development-environments-2022.github.io/assignment2-208987248_205963135/
+Website URL: [https://web-development-environments-2022.github.io/assignment2-208987248_205963135/](https://web-development-environments-2022.github.io/208987248_205963135/)
 
 ### Overview
 
