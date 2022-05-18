@@ -369,7 +369,7 @@ function UpdatePosition() {
 		board[pacmanLocation.i][pacmanLocation.j] = "Pacman";
 	}
 	var currentTime = new Date();
-	time_elapsed = (currentTime - start_time) / 1000;
+	time_elapsed = curMaxGameTime - (currentTime - start_time) / 1000;
 	// if (score >= 20 && time_elapsed <= 10) {
 	// 	pac_color = "green";
 	// }
@@ -415,6 +415,12 @@ function UpdatePosition() {
 		switchScreens("settingScreen");
 		document.getElementById('accept').checked = false;
 		manageSound();
+		let gameOverImage = new Image();
+		gameOverImage.src = "./Images/gameOver.jpg"
+		let gameOverCenter = new Object()
+		gameOverCenter.x = 9;
+		gameOverCenter.y = 9;
+		context.drawImage(gameOverImage,gameOverCenter.x, gameOverCenter.y, 400, 600);
 		return;
 	}
 	else {

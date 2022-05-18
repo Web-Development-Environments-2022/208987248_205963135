@@ -1,17 +1,17 @@
-let curKeyUp="⇧";
-let curKeyDown="⇩";
-let curKeyRight = "➪";
-let curKeyLeft= "⇦" ;
-let curKeyNumUp = 38;
-let curKeyNumDown = 40;
-let curKeyNumLeft = 37;
-let curKeyNumRight = 39;
-let curNumOfFoodPoints = 50;
-let newColor5 = "#f6355c";
-let newColor15 = "#e3a221";
-let newColor25 = "#316600";
-let curMaxGameTime = 60;
-let curNumOfMonsters=2;
+var curKeyNumUp = 38;
+var curKeyNumDown = 40;
+var curKeyNumLeft = 37;
+var curKeyNumRight = 39;
+var curKeyUp="⇧";
+var curKeyDown="⇩";
+var curKeyRight = "➪";
+var curKeyLeft= "⇦" ;
+var curNumOfFoodPoints = 50;
+var newColor5 = "#f6355c";
+var newColor15 = "#e3a221";
+var newColor25 = "#316600";
+var curMaxGameTime = 60;
+var curNumOfMonsters=2;
 
 $(document).ready(function(){
 	$("#setting").validate({
@@ -102,29 +102,37 @@ function changeKey(setting){
         keyNum = event.keyCode;
         switch (setting){
             case "UP":
-                if (keyNum==curKeyNumDown || keyNum==curKeyNumLeft || keyNum==curKeyNumRight)
+                if (keyNum==curKeyNumDown || keyNum==curKeyNumLeft || keyNum==curKeyNumRight){
+                    window.alert("This key was already chosen, please choose another one");
                     break;
+                }
                 curKeyUp=  DisplayCurKey(keyNum);
                 curKeyNumUp = keyNum;
                 document.getElementById("Up").value = curKeyUp;
                 break;
             case "DOWN":
-                if (keyNum==curKeyNumUp || keyNum==curKeyNumLeft || keyNum==curKeyNumRight)
-                break;
+                if (keyNum==curKeyNumUp || keyNum==curKeyNumLeft || keyNum==curKeyNumRight){
+                    window.alert("This key was already chosen, please choose another one");
+                    break;
+                }
                 curKeyDown = DisplayCurKey(keyNum);
                 curKeyNumDown = keyNum;
                 document.getElementById("Down").value = curKeyDown;
                 break;
             case "LEFT":
-                if (keyNum==curKeyNumDown || keyNum==curKeyNumUp || keyNum==curKeyNumRight)
-                break;
+                if (keyNum==curKeyNumDown || keyNum==curKeyNumUp || keyNum==curKeyNumRight){
+                    window.alert("This key was already chosen, please choose another one");
+                    break;
+                }
                 curKeyLeft = DisplayCurKey(keyNum);
                 curKeyNumLeft = keyNum;
                 document.getElementById("Left").value = curKeyLeft;
                 break;
             case "RIGHT":
-                if (keyNum==curKeyNumDown || keyNum==curKeyNumLeft || keyNum==curKeyNumUp)
-                break;
+                if (keyNum==curKeyNumDown || keyNum==curKeyNumLeft || keyNum==curKeyNumUp){
+                    window.alert("This key was already chosen, please choose another one");
+                    break;
+                }
                 curKeyRight = DisplayCurKey(keyNum);
                 curKeyNumRight = keyNum;
                 document.getElementById("Right").value = curKeyRight;
@@ -176,10 +184,10 @@ function getRandomColor() {
   }
 
 function randomSettings(){
-    curKeyCodeUp = 38;
-    curKeyCodeDown = 40;
-    curKeyCodeLeft = 37;
-    curKeyCodeRight = 39;
+    curKeyNumUp = 38;
+    curKeyNumDown = 40;
+    curKeyNumLeft = 37;
+    curKeyNumRight = 39;
     curKeyUp="⇧";
     document.getElementById("Up").value = curKeyUp;
     curKeyDown="⇩";
