@@ -42,7 +42,7 @@ also add our own design and images.
 The following special features have been added:
 
 - **Clock** - you will get 10 secondes extra when you eat the clock. 
-![clock](https://user-images.githubusercontent.com/81363383/169156388-9172a889-d51d-401e-9269-3c3ae8dd6099.png =250x250)
+![clock](https://user-images.githubusercontent.com/81363383/169156388-9172a889-d51d-401e-9269-3c3ae8dd6099.png width="200" height="200")
 - **Yellow heart** - you will get an extra live when you eat the heart.
 ![1hearts](https://user-images.githubusercontent.com/81363383/169156428-76ead34c-4e22-4866-ae4a-2b6d22573a15.png)
 - **Sweet or sour candy** - you will get 20 points or lose 20 points. It's a suprise!
