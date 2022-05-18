@@ -41,8 +41,8 @@ also add our own design and images.
 
 The following special features have been added:
 
-- **Clock** - you will get 10 secondes extra when you eat the clock.  <img width="100" height="100" alt="image" src="./Images/clock.png">
-- **Yellow heart** - you will get an extra live when you eat the heart. <img width="100" height="100" alt="image" src="./Images/1hearts.png">
-- **Sweet or sour candy** - you will get 20 points or lose 20 points. It's a suprise! <img width="100" height="100" alt="image" src="./Images/candy3.png">
+- **Clock** - you will get 10 secondes extra when you eat the clock.  <img width="50" height="50" alt="image" src="./Images/clock.png">
+- **Yellow heart** - you will get an extra live when you eat the heart. <img width="50" height="50" alt="image" src="./Images/1hearts.png">
+- **Sweet or sour candy** - you will get 20 points or lose 20 points. It's a suprise! <img width="50" height="50" alt="image" src="./Images/candy3.png">
 
 
