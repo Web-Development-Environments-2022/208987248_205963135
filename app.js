@@ -28,6 +28,7 @@ var timeReduction;
 var sound;
 var die;
 var eat;
+var sweetSourCandy;
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -49,6 +50,7 @@ function Start() {
 	movingFood = new MovingFood();
 	medicine = new Medicine()
 	clock = new Clock();
+	sweetSourCandy = new SweetSourCandy();
 	board = boardGame.generateaBoard()
 	//background music
 	if(sound == undefined){
@@ -194,6 +196,9 @@ function Draw() {
 			else if (board[i][j] == "Clock") {
 				clock.drawClock(center);
 			}
+			else if (board[i][j] == "SweetSourCandy") {
+				sweetSourCandy.drawSweetSourCandy(center);
+			}
 		}
 	}
 }
@@ -333,14 +338,17 @@ function UpdatePosition() {
 		movingFood.caught = true;
 		score += 50;
 		eat.play();
-
+	}
+	else if (board[pacmanLocation.i][pacmanLocation.j] == "SweetSourCandy"){
+		sweetSourCandy.setScore();
+		score += sweetSourCandy.score;
+		eat.play();
 	}
 	else if (board[pacmanLocation.i][pacmanLocation.j] == "Medicine") {
 		pacman.livesLeft++;
 		let heartImage = document.getElementById("hearts");
 		heartImage.width = pacman.livesLeft*20;
         heartImage.src = "Images/" + pacman.livesLeft + "hearts.png";
-		console.log(pacman.livesLeft);
 	}
 	else if (board[pacmanLocation.i][pacmanLocation.j] == "Clock") {
 		if(time_elapsed >= 10){
@@ -374,7 +382,7 @@ function UpdatePosition() {
 	// 	pac_color = "green";
 	// }
 	// TODO change the alert window in game over modal
-	if (time_elapsed > curMaxGameTime && score >= 100) { //todo change to num of total points
+	if (time_elapsed <= 0 && score >= 100) { //todo change to num of total points
 		// window.clearInterval(interval);
 		window.alert("Winner");
 		time_elapsed = 0;
@@ -388,7 +396,7 @@ function UpdatePosition() {
 		manageSound();
 		return;
 	}
-	else if(time_elapsed > curMaxGameTime && score < 100){
+	else if(time_elapsed <= 0 && score < 100){
 		// window.clearInterval(interval);
 		window.alert("You are better than " + score + " points!");
 		time_elapsed = 0;
@@ -405,7 +413,6 @@ function UpdatePosition() {
 	else 
 	if(pacman.livesLeft == 0){
 		// window.clearInterval(interval);
-		window.alert("Loser!");
 		time_elapsed = 0;
 		score = 0;
 		pacman.livesLeft = 5;
@@ -415,12 +422,16 @@ function UpdatePosition() {
 		switchScreens("settingScreen");
 		document.getElementById('accept').checked = false;
 		manageSound();
+		let canvas = document.getElementById("canvas");
+		canvas.width = canvas.width;
 		let gameOverImage = new Image();
 		gameOverImage.src = "./Images/gameOver.jpg"
 		let gameOverCenter = new Object()
 		gameOverCenter.x = 9;
 		gameOverCenter.y = 9;
-		context.drawImage(gameOverImage,gameOverCenter.x, gameOverCenter.y, 400, 600);
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		context.drawImage(gameOverImage, gameOverCenter.x - 100, gameOverCenter.y - 100, 200, 200);
+		window.alert("Loser!");
 		return;
 	}
 	else {

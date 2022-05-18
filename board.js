@@ -106,6 +106,10 @@ class Board {
             clockLocation.j = emptyClockCell[1];
             this.newBoard[emptyClockCell[0]][emptyClockCell[1]] = "Clock"; //Clock location
         }
+        if(SweetSourCandy != undefined){
+            let emptySweetSourCandyCell = this.getRandomEmptyCell();
+            this.newBoard[emptySweetSourCandyCell[0]][emptySweetSourCandyCell[1]] = "SweetSourCandy"; //Clock location
+        }
         return this.newBoard
     }
 
