@@ -35,12 +35,17 @@ also add our own design and images.
 - The game ends when:
   - Win: The time is up and the score is above 100 points.
   - Lose: if Pacman loses all its lives (Loser) or if the time runs out and the score is below 100 points (You can do better...)
+<img width="958" alt="image" src="https://user-images.githubusercontent.com/81363383/169156706-a2d3bf81-71a2-41af-a5ad-ec0659142f30.png">
 
 ## Special Functionality
 
 The following special features have been added:
 
-- **Clock** - you will get 10 secondes extra when you eat the clock.
+- **Clock** - you will get 10 secondes extra when you eat the clock. 
+![clock](https://user-images.githubusercontent.com/81363383/169156388-9172a889-d51d-401e-9269-3c3ae8dd6099.png)
 - **Yellow heart** - you will get an extra live when you eat the heart.
+![1hearts](https://user-images.githubusercontent.com/81363383/169156428-76ead34c-4e22-4866-ae4a-2b6d22573a15.png)
 - **Sweet or sour candy** - you will get 20 points or lose 20 points. It's a suprise!
+![candy3](https://user-images.githubusercontent.com/81363383/169156456-67538b96-d63b-41e0-aa40-7d238f577fc2.png)
+
 
